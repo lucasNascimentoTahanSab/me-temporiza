@@ -1,32 +1,10 @@
-.container {
-  width: 100%;
-}
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
-.timer {
-  font-size: x-large;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.container_buttons {
-  width: 90%;
-  margin: 0 auto;
-  text-align: center;
-  margin-top: 50px;
-}
-
-.container_buttons-right {
-  width: 50%;
-  float: right;
-}
-
-.container_buttons-left {
-  width: 50%;
-  float: left;
-}
-
-.container_center {
-  text-align: center;
-  margin: 0 auto;
+html {
+  color: #273746;
+  font-size: xx-large;
+  font-weight: bolder;
+  font-family: 'Lobster', cursive;
 }
 
 button {
@@ -36,4 +14,49 @@ button {
   cursor:pointer;
   overflow: hidden;
   outline:none;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 100px;
+}
+
+.container_timer {
+  padding: 50px;
+  width: 250px;
+  height: 250px;
+  background-color: #BB8FCE;
+  border-radius: 10px;
+}
+
+.container_center {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.container_buttons {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.container_buttons-left {
+  width: 46%;
+  float: left;
+  text-align: right;
+}
+
+.container_buttons-right {
+  width: 46%;
+  float: right;
+  text-align: left;
+}
+
+.division {
+  width: 8%;
+}
+
+.clear-both {
+  clear: both;
 }

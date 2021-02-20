@@ -7,30 +7,26 @@
   <script src="pomodoro.js"></script>
 </head>
 
-<header class="container">
-  <div class="container_center">
-    <div class="timer" id="pomodoroTitle"></div>
-  </div>
-</header>
-
 <body class="container">
-  <div class="container_center">
+  <div class="container_timer container_center">
+    <div class="timer" id="pomodoroTitle"></div>
     <div class="timer" id="pomodoroTimer"></div>
+    <div class="container_buttons">
+      <div class="container_buttons-left">
+        <button onclick="handleTimerExecution()">
+          <img id="execute" src="src/play.png">
+        </button>
+      </div>
+      <div class="division"></div>
+      <div class="container_buttons-right">
+        <button onclick="handleTimerReload()">
+          <img src="src/reload.png">
+        </button>
+      </div>
+    </div>
+    <div class="clear-both"></div>
   </div>
 </body>
-
-<footer class="container_buttons">
-  <div class="container_buttons-left">
-    <button onclick="handleTimerExecution()">
-      <img id="execute" src="src/play.png">
-    </button>
-  </div>
-  <div class="container_buttons-right">
-    <button onclick="handleTimerReload()">
-      <img src="src/reload.png">
-    </button>
-  </div>
-</footer>
 
 <audio id="alarm" src="src/alarm.mp3"></audio>
 
