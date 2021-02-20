@@ -38,9 +38,9 @@ table {
   width: 200px;
   height: 50px;
   border-radius: 10px;
-  /* z-index: -1;
+  z-index: -1;
   position: relative;
-  top: 10px; */
+  top: 10px;
 }
 
 .container_options-item {
@@ -76,6 +76,10 @@ table {
   width: 46%;
   float: right;
   text-align: left;
+}
+
+.clickable {
+  cursor: pointer;
 }
 
 .division {

@@ -10,10 +10,13 @@
 <body class="container container_center">
   <table class="container_options">
     <tr class="container_options">
-      <td class="container_options-item selected" id="5minutes" data-time="00:05:00"
+      <td class="container_options-item selected clickable" id="5minutes" data-time="00:05:00"
+        onclick="handleTimeSelection(event)">
+      </td>
+      <td class="container_options-item clickable" id="25minutes" data-time="00:25:00"
         onclick="handleTimeSelection(event)"></td>
-      <td class="container_options-item" id="25minutes" data-time="00:25:00" onclick="handleTimeSelection(event)"></td>
-      <td class="container_options-item" id="50minutes" data-time="00:50:00" onclick="handleTimeSelection(event)"></td>
+      <td class="container_options-item clickable" id="50minutes" data-time="00:50:00"
+        onclick="handleTimeSelection(event)"></td>
     </tr>
   </table>
   <div class="container_timer container_center">
