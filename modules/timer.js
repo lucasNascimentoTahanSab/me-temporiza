@@ -11,9 +11,20 @@ window.addEventListener('load', () => {
 
 function handleTimeSelection(event) {
   pomodoroTimer = event.target.dataset.time
+  updatePresetTimes()
   updateInitialTime()
   updateCurrentTime()
   handleTimerReload()
+}
+
+function updatePresetTimes() {
+  const optionItems = document.querySelectorAll('.container_options-item')
+  optionItems.forEach(option => {
+    if (option.dataset.time === pomodoroTimer)
+      option.classList.add('selected')
+    else
+      option.classList.remove('selected')
+  })
 }
 
 function updateInitialTime() {
