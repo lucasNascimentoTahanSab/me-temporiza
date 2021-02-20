@@ -61,7 +61,7 @@ function pauseTimer() {
 }
 
 function changeExecuteImage() {
-  document.getElementById('execute').src = isPlaying ? 'img/pause.png' : 'img/play.png'
+  document.getElementById('execute').src = isPlaying ? 'src/pause.png' : 'src/play.png'
 }
 
 function handleTimerReload() {
@@ -85,3 +85,6 @@ function formatTimer() {
   pomodoroTimer = hours + ':' + minutes + ':' + seconds
 }
 
+function playAlarm() {
+  document.getElementById('alarm').play();
+}
