@@ -3,6 +3,7 @@
 
 <head>
   <link rel="stylesheet" href="pomodoro.css">
+  <script src="./modules/timer.js"></script>
   <script src="pomodoro.js"></script>
 </head>
 
@@ -21,14 +22,16 @@
 <footer class="container_buttons">
   <div class="container_buttons-left">
     <button onclick="handleTimerExecution()">
-      <img id="execute" src="img/play.png">
+      <img id="execute" src="src/play.png">
     </button>
   </div>
   <div class="container_buttons-right">
     <button onclick="handleTimerReload()">
-      <img src="img/reload.png">
+      <img src="src/reload.png">
     </button>
   </div>
 </footer>
+
+<audio id="alarm" src="src/alarm.mp3"></audio>
 
 </html>
