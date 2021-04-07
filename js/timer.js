@@ -18,7 +18,7 @@ function handleTimeSelection(event) {
 }
 
 function updatePresetTimes() {
-  const optionItems = document.querySelectorAll('.container_options-item')
+  const optionItems = document.querySelectorAll('.container__options-item')
   optionItems.forEach(option => {
     if (option.dataset.time === pomodoroTimer)
       option.classList.add('selected')

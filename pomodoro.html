@@ -1,44 +1,38 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <link rel="stylesheet" href="pomodoro.css">
-  <script src="./modules/timer.js"></script>
-  <script src="pomodoro.js"></script>
-</head>
+  <head>
+    <link rel="stylesheet" href="./style/pomodoro.css">
+    <script src="./js/timer.js"></script>
+    <script src="./js/pomodoro.js"></script>
+  </head>
 
-<body class="container container_center">
-  <table class="container_options">
-    <tr class="container_options">
-      <td class="container_options-item selected clickable" id="5minutes" data-time="00:05:00"
-        onclick="handleTimeSelection(event)">
-      </td>
-      <td class="container_options-item clickable" id="25minutes" data-time="00:25:00"
-        onclick="handleTimeSelection(event)"></td>
-      <td class="container_options-item clickable" id="50minutes" data-time="00:50:00"
-        onclick="handleTimeSelection(event)"></td>
-    </tr>
-  </table>
-  <div class="container_timer container_center">
-    <div class="timer" id="pomodoroTitle"></div>
-    <div class="timer" id="pomodoroTimer"></div>
-    <div class="container_buttons">
-      <div class="container_buttons-left">
-        <button onclick="handleTimerExecution()">
-          <img id="execute" src="src/play.png">
-        </button>
-      </div>
-      <div class="division"></div>
-      <div class="container_buttons-right">
-        <button onclick="handleTimerReload()">
-          <img src="src/reload.png">
-        </button>
+  <body>
+    <div class="container">
+      <div class="container__timer">
+        <article class="container__options">
+          <span class="container__options-item selected clickable" id="5minutes" data-time="00:05:00"
+            onclick="handleTimeSelection(event)"></span>
+          <span class="container__options-item clickable" id="25minutes" data-time="00:25:00"
+            onclick="handleTimeSelection(event)"></span>
+          <span class="container__options-item clickable" id="50minutes" data-time="00:50:00"
+            onclick="handleTimeSelection(event)"></span>
+        </article>
+        <div class="timer" id="pomodoroTitle"></div>
+        <div class="timer" id="pomodoroTimer"></div>
+        <div class="container__buttons">
+          <button onclick="handleTimerExecution()">
+            <img id="execute" src="src/play.png">
+          </button>
+          <button onclick="handleTimerReload()">
+            <img src="src/reload.png">
+          </button>
+        </div>
+        <div class="clear-both"></div>
       </div>
     </div>
-    <div class="clear-both"></div>
-  </div>
-</body>
+  </body>
 
-<audio id="alarm" src="src/alarm.mp3"></audio>
+  <audio id="alarm" src="src/alarm.mp3"></audio>
 
 </html>
