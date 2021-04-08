@@ -32,6 +32,74 @@ button {
   background-color: #BB8FCE;
 }
 
+.container__options-custom {
+  position: absolute;
+  z-index: -1;
+  top: 10px;
+  display: flex;
+  justify-content: space-around;
+  width: 200px;
+  height: 30px;
+  padding: 10px 40px 10px 10px;
+  border-radius: 0 10px 10px 0;
+  background-color: #E8DAEF;
+}
+
+.container__options-custom-item {
+  width: 50px;
+  margin: 1%;
+}
+
+.open__options-custom {
+  position: absolute;
+  top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 50px;
+  border-radius: 0 10px 10px 0;
+  background-color: #E8DAEF;
+}
+
+.stick {
+  position: relative;
+  width: 4px;
+  height: 17px;
+  background-color: #BB8FCE;
+}
+
+.upper {
+  top: 2px;
+}
+
+.lower {
+  bottom: 2px;
+}
+
+.rotate-right {
+  transform: rotateZ(-30deg);
+  transition: 0.5s;
+}
+
+.rotate-left {
+  transform: rotateZ(30deg);
+  transition: 0.5s;
+}
+
+.first {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-right: 5px;
+}
+
+.second {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
 .container__options {
   position: absolute;
   top: -50px;
@@ -69,6 +137,7 @@ button {
 
 .selected {
   background-color: #D7BDE2;
+  transition: 0.5s;
 }
 
 .clickable {
@@ -79,6 +148,12 @@ button {
   width: 8%;
 }
 
-.clear-both {
-  clear: both;
+.open {
+  right: -250px;
+  transition: 0.25s;
+}
+
+.close {
+  right: -40px;
+  transition: 0.25s;
 }

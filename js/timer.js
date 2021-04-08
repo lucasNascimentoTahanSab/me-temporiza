@@ -9,6 +9,38 @@ window.addEventListener('load', () => {
   startTimer()
 })
 
+function openCustomOptions() {
+  const customOptions = document.getElementById('custom-options');
+  const customOptionsButton = document.getElementById('custom-options-button');
+  if (customOptions.classList.contains('close')) {
+    customOptions.classList.remove('close')
+    customOptions.classList.add('open')
+    customOptionsButton.classList.remove('close')
+    customOptionsButton.classList.add('open')
+    this.rotateSticks()
+  } else {
+    customOptions.classList.remove('open')
+    customOptions.classList.add('close')
+    customOptionsButton.classList.remove('open')
+    customOptionsButton.classList.add('close')
+    this.rotateSticks()
+  }
+}
+
+function rotateSticks() {
+  const sticks = document.querySelectorAll('.stick');
+  if (sticks.length > 0)
+    sticks.forEach(stick => {
+      if (stick.classList.contains('rotate-right')) {
+        stick.classList.remove('rotate-right')
+        stick.classList.add('rotate-left')
+      } else if (stick.classList.contains('rotate-left')) {
+        stick.classList.remove('rotate-left')
+        stick.classList.add('rotate-right')
+      }
+    })
+}
+
 function handleTimeSelection(event) {
   pomodoroTimer = event.target.dataset.time
   updatePresetTimes()
