@@ -46,6 +46,7 @@ button {
 }
 
 .container__options-custom-item {
+  border-style: none;
   width: 50px;
   margin: 1%;
 }
