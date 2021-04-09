@@ -6,7 +6,8 @@
 }
 
 body {
-  background-color: #023C4D;
+  background-color: #453E69;
+  /* #252138; */
 }
 
 button {
@@ -53,6 +54,7 @@ button {
 
 .container__options-custom-item {
   border-style: none;
+  border-radius: 5px;
   width: 50px;
   margin: 1%;
 }

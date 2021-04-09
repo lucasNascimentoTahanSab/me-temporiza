@@ -13,12 +13,12 @@ window.addEventListener('load', () => {
   document.getElementById('5minutes').innerHTML = fiveMinutes
   document.getElementById('25minutes').innerHTML = twentyFiveMinutes
   document.getElementById('50minutes').innerHTML = fiftyMinutes
-  document.getElementById('custom-options-button').addEventListener('click', event => openCustomOptions())
+  document.getElementById('custom-options-button').addEventListener('click', () => openCustomOptions())
   document.getElementById('5minutes').addEventListener('click', event => handleTimerSelection(event))
   document.getElementById('25minutes').addEventListener('click', event => handleTimerSelection(event))
   document.getElementById('50minutes').addEventListener('click', event => handleTimerSelection(event))
   document.getElementById('execute-button').addEventListener('click', () => handleTimerExecution())
-  document.getElementById('reload-button').addEventListener('click', event => handleTimerReload())
+  document.getElementById('reload-button').addEventListener('click', () => handleTimerReload())
   startTimer()
 })
 
