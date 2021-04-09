@@ -22,13 +22,20 @@ export default class Timer {
   }
 
   handleTimerExecution(play) {
-    if (play) this.playTimer()
-    else this.pauseTimer()
+    if (play) this._playTimer()
+    else this._pauseTimer()
   }
 
   handleTimerSelection(timer) {
-    this.updateInitialTime(timer)
-    this.updateCurrentTime()
+    this._updateInitialTime(timer)
+    this._updateCurrentTime()
+  }
+
+  handleTimerReload() {
+    this._pauseTimer()
+    this._resetHours()
+    this._resetMinutes()
+    this._resetSeconds()
   }
 
   decreaseTimer() {
@@ -41,54 +48,11 @@ export default class Timer {
     return this._currentHours === 0 && this._currentMinutes === 0 && this._currentSeconds === 0
   }
 
-  handleTimerReload() {
-    this.pauseTimer()
-    this.resetHours()
-    this.resetMinutes()
-    this.resetSeconds()
-  }
-
-  playTimer() {
-    this._isPlaying = true
-  }
-
-  pauseTimer() {
-    this._isPlaying = false
-  }
-
-  resetHours() {
-    this._currentHours = parseInt(this._initialHours)
-  }
-
-  resetMinutes() {
-    this._currentMinutes = parseInt(this._initialMinutes)
-  }
-
-  resetSeconds() {
-    this._currentSeconds = parseInt(this._initialSeconds)
-  }
-
   getTimeFormatted() {
-    return this.formatHours() + ':' + this.formatMinutes() + ':' + this.formatSeconds()
+    return this._formatHours() + ':' + this._formatMinutes() + ':' + this._formatSeconds()
   }
 
-  formatHours() {
-    return this._currentHours >= 10 ? this._currentHours.toString() : '0' + this._currentHours.toString()
-  }
-
-  formatMinutes() {
-    return this._currentMinutes >= 10 ? this._currentMinutes.toString() : '0' + this._currentMinutes.toString()
-  }
-
-  formatSeconds() {
-    return this._currentSeconds >= 10 ? this._currentSeconds.toString() : '0' + this._currentSeconds.toString()
-  }
-
-  timeIsOver() {
-    return this._currentHours === 0 && this._currentMinutes === 0 && this._currentSeconds === 0
-  }
-
-  updateInitialTime(timer) {
+  _updateInitialTime(timer) {
     const timerElements = timer.split(':')
 
     this._initialHours = timerElements[0]
@@ -96,9 +60,41 @@ export default class Timer {
     this._initialSeconds = timerElements[2]
   }
 
-  updateCurrentTime() {
+  _updateCurrentTime() {
     this._currentHours = parseInt(this._initialHours)
     this._currentMinutes = parseInt(this._initialMinutes)
     this._currentSeconds = parseInt(this._initialSeconds)
+  }
+
+  _playTimer() {
+    this._isPlaying = true
+  }
+
+  _pauseTimer() {
+    this._isPlaying = false
+  }
+
+  _resetHours() {
+    this._currentHours = parseInt(this._initialHours)
+  }
+
+  _resetMinutes() {
+    this._currentMinutes = parseInt(this._initialMinutes)
+  }
+
+  _resetSeconds() {
+    this._currentSeconds = parseInt(this._initialSeconds)
+  }
+
+  _formatHours() {
+    return this._currentHours >= 10 ? this._currentHours.toString() : '0' + this._currentHours.toString()
+  }
+
+  _formatMinutes() {
+    return this._currentMinutes >= 10 ? this._currentMinutes.toString() : '0' + this._currentMinutes.toString()
+  }
+
+  _formatSeconds() {
+    return this._currentSeconds >= 10 ? this._currentSeconds.toString() : '0' + this._currentSeconds.toString()
   }
 }
