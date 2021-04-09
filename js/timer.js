@@ -1,180 +1,104 @@
-const oneSecond = 1000
-const pomodoroTitle = 'Pomodoro Timer'
-const fiveMinutes = '5'
-const twentyFiveMinutes = '25'
-const fiftyMinutes = '50'
+export default class Timer {
+  _initialHours
+  _initialMinutes
+  _initialSeconds
+  _currentHours
+  _currentMinutes
+  _currentSeconds
+  _isPlaying
 
-initialHours = '00'
-initialMinutes = '05'
-initialSeconds = '00'
-pomodoroTimer = initialHours + ':' + initialMinutes + ':' + initialSeconds
-window.addEventListener('load', () => {
-  document.getElementById('pomodoroTimer').innerHTML = pomodoroTimer
-  document.getElementById('pomodoroTitle').innerHTML = pomodoroTitle
-  document.getElementById('5minutes').innerHTML = fiveMinutes
-  document.getElementById('25minutes').innerHTML = twentyFiveMinutes
-  document.getElementById('50minutes').innerHTML = fiftyMinutes
-  startTimer()
-})
-
-currentHours = parseInt(initialHours)
-currentMinutes = parseInt(initialMinutes)
-currentSeconds = parseInt(initialSeconds)
-isPlaying = false
-setIntervalId = null
-function startTimer() {
-  setIntervalId = setInterval(() => {
-    if (isPlaying) {
-      decreaseTimer()
-      changeTimerValueOnScreen()
-      if (timeIsOver()) resetTimerAndPlayAlarm()
-    }
-  }, oneSecond)
-}
-
-function resetTimerAndPlayAlarm() {
-  pauseTimer()
-  resetHours()
-  resetMinutes()
-  resetSeconds()
-  changeExecuteImage()
-  playAlarm()
-}
-
-function decreaseTimer() {
-  currentSeconds = currentSeconds > 0 ? currentSeconds - 1 : 59
-  currentMinutes = currentSeconds === 59 && currentMinutes > 0 ? currentMinutes - 1 : currentMinutes
-  currentHours = currentMinutes === 59 && currentHours > 0 ? currentHours - 1 : currentHours
-}
-
-function handleTimerExecution() {
-  if (isPlaying) pauseTimer()
-  else playTimer()
-  changeExecuteImage()
-}
-
-function playTimer() {
-  isPlaying = true
-}
-
-function pauseTimer() {
-  isPlaying = false
-}
-
-function changeExecuteImage() {
-  document.getElementById('execute').src = isPlaying ? 'src/pause.png' : 'src/play.png'
-}
-
-function handleTimerReload() {
-  pauseTimer()
-  resetHours()
-  resetSeconds()
-  resetMinutes()
-  changeTimerValueOnScreen()
-  changeExecuteImage()
-}
-
-function resetHours() {
-  currentHours = parseInt(initialHours)
-}
-
-function resetMinutes() {
-  currentMinutes = parseInt(initialMinutes)
-}
-
-function resetSeconds() {
-  currentSeconds = parseInt(initialSeconds)
-}
-
-function changeTimerValueOnScreen() {
-  formatTimer()
-  document.getElementById('pomodoroTimer').innerHTML = pomodoroTimer
-}
-
-function formatTimer() {
-  pomodoroTimer = formatHours() + ':' + formatMinutes() + ':' + formatSeconds()
-}
-
-function formatHours() {
-  return this.currentHours >= 10 ? this.currentHours.toString() : '0' + this.currentHours.toString()
-}
-
-function formatMinutes() {
-  return this.currentMinutes >= 10 ? this.currentMinutes.toString() : '0' + this.currentMinutes.toString()
-}
-
-function formatSeconds() {
-  return this.currentSeconds >= 10 ? this.currentSeconds.toString() : '0' + this.currentSeconds.toString()
-}
-
-function timeIsOver() {
-  return currentHours === 0 && currentMinutes === 0 && currentSeconds === 0
-}
-
-function playAlarm() {
-  document.getElementById('alarm').play();
-}
-
-function openCustomOptions() {
-  const customOptions = document.getElementById('custom-options');
-  const customOptionsButton = document.getElementById('custom-options-button');
-  if (customOptions.classList.contains('close')) {
-    customOptions.classList.remove('close')
-    customOptions.classList.add('open')
-    customOptionsButton.classList.remove('close')
-    customOptionsButton.classList.add('open')
-    this.rotateSticks()
-  } else {
-    customOptions.classList.remove('open')
-    customOptions.classList.add('close')
-    customOptionsButton.classList.remove('open')
-    customOptionsButton.classList.add('close')
-    this.rotateSticks()
+  constructor() {
+    this._initialHours = '00'
+    this._initialMinutes = '05'
+    this._initialSeconds = '00'
+    this._currentHours = parseInt(this._initialHours)
+    this._currentMinutes = parseInt(this._initialMinutes)
+    this._currentSeconds = parseInt(this._initialSeconds)
+    this._isPlaying = false
   }
-}
 
-function rotateSticks() {
-  const sticks = document.querySelectorAll('.stick');
-  if (sticks.length > 0)
-    sticks.forEach(stick => {
-      if (stick.classList.contains('rotate-right')) {
-        stick.classList.remove('rotate-right')
-        stick.classList.add('rotate-left')
-      } else if (stick.classList.contains('rotate-left')) {
-        stick.classList.remove('rotate-left')
-        stick.classList.add('rotate-right')
-      }
-    })
-}
+  get isPlaying() {
+    return this._isPlaying
+  }
 
-function handleTimeSelection(event) {
-  pomodoroTimer = event.target.dataset.time
-  updatePresetTimes()
-  updateInitialTime()
-  updateCurrentTime()
-  handleTimerReload()
-}
+  handleTimerExecution(play) {
+    if (play) this.playTimer()
+    else this.pauseTimer()
+  }
 
-function updatePresetTimes() {
-  const optionItems = document.querySelectorAll('.container__options-item')
-  optionItems.forEach(option => {
-    if (option.dataset.time === pomodoroTimer)
-      option.classList.add('selected')
-    else
-      option.classList.remove('selected')
-  })
-}
+  handleTimerSelection(timer) {
+    this.updateInitialTime(timer)
+    this.updateCurrentTime()
+  }
 
-function updateInitialTime() {
-  timerElements = pomodoroTimer.split(':')
+  decreaseTimer() {
+    this._currentSeconds = this._currentSeconds > 0 ? this._currentSeconds - 1 : 59
+    this._currentMinutes = this._currentSeconds === 59 && this._currentMinutes > 0 ? this._currentMinutes - 1 : this._currentMinutes
+    this._currentHours = this._currentMinutes === 59 && this._currentHours > 0 ? this._currentHours - 1 : this._currentHours
+  }
 
-  initialHours = timerElements[0]
-  initialMinutes = timerElements[1]
-  initialSeconds = timerElements[2]
-}
+  timeIsOver() {
+    return this._currentHours === 0 && this._currentMinutes === 0 && this._currentSeconds === 0
+  }
 
-function updateCurrentTime() {
-  currentHours = parseInt(initialHours)
-  currentMinutes = parseInt(initialMinutes)
-  currentSeconds = parseInt(initialSeconds)
+  handleTimerReload() {
+    this.pauseTimer()
+    this.resetHours()
+    this.resetMinutes()
+    this.resetSeconds()
+  }
+
+  playTimer() {
+    this._isPlaying = true
+  }
+
+  pauseTimer() {
+    this._isPlaying = false
+  }
+
+  resetHours() {
+    this._currentHours = parseInt(this._initialHours)
+  }
+
+  resetMinutes() {
+    this._currentMinutes = parseInt(this._initialMinutes)
+  }
+
+  resetSeconds() {
+    this._currentSeconds = parseInt(this._initialSeconds)
+  }
+
+  getTimeFormatted() {
+    return this.formatHours() + ':' + this.formatMinutes() + ':' + this.formatSeconds()
+  }
+
+  formatHours() {
+    return this._currentHours >= 10 ? this._currentHours.toString() : '0' + this._currentHours.toString()
+  }
+
+  formatMinutes() {
+    return this._currentMinutes >= 10 ? this._currentMinutes.toString() : '0' + this._currentMinutes.toString()
+  }
+
+  formatSeconds() {
+    return this._currentSeconds >= 10 ? this._currentSeconds.toString() : '0' + this._currentSeconds.toString()
+  }
+
+  timeIsOver() {
+    return this._currentHours === 0 && this._currentMinutes === 0 && this._currentSeconds === 0
+  }
+
+  updateInitialTime(timer) {
+    const timerElements = timer.split(':')
+
+    this._initialHours = timerElements[0]
+    this._initialMinutes = timerElements[1]
+    this._initialSeconds = timerElements[2]
+  }
+
+  updateCurrentTime() {
+    this._currentHours = parseInt(this._initialHours)
+    this._currentMinutes = parseInt(this._initialMinutes)
+    this._currentSeconds = parseInt(this._initialSeconds)
+  }
 }
