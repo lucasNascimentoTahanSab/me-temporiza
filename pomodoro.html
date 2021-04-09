@@ -4,16 +4,15 @@
   <head>
     <link rel="stylesheet" href="./style/pomodoro.css">
     <script src="./js/timer.js"></script>
-    <script src="./js/pomodoro.js"></script>
   </head>
 
   <body>
     <div class="container">
       <div class="container__timer">
         <article class="container__options-custom close" id="custom-options">
-          <select class="container__options-custom-item" type=""></select>
-          <select class="container__options-custom-item" type=""></select>
-          <select class="container__options-custom-item" type=""></select>
+          <select class="container__options-custom-item"></select>
+          <select class="container__options-custom-item"></select>
+          <select class="container__options-custom-item"></select>
         </article>
         <div class="open__options-custom clickable close" id="custom-options-button" onclick="openCustomOptions()">
           <div class="first">
@@ -33,15 +32,17 @@
           <span class="container__options-item clickable" id="50minutes" data-time="00:50:00"
             onclick="handleTimeSelection(event)"></span>
         </article>
-        <div class="timer" id="pomodoroTitle"></div>
-        <div class="timer" id="pomodoroTimer"></div>
-        <div class="container__buttons">
-          <button onclick="handleTimerExecution()">
-            <img id="execute" src="src/play.png">
-          </button>
-          <button onclick="handleTimerReload()">
-            <img src="src/reload.png">
-          </button>
+        <div class="container__timer-box">
+          <div class="timer" id="pomodoroTitle"></div>
+          <div class="timer" id="pomodoroTimer"></div>
+          <div class="container__buttons">
+            <button onclick="handleTimerExecution()">
+              <img id="execute" src="src/play.png">
+            </button>
+            <button onclick="handleTimerReload()">
+              <img src="src/reload.png">
+            </button>
+          </div>
         </div>
       </div>
     </div>
