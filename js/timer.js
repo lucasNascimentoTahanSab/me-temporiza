@@ -1,141 +1,104 @@
-const oneSecond = 1000
+export default class Timer {
+  _initialHours
+  _initialMinutes
+  _initialSeconds
+  _currentHours
+  _currentMinutes
+  _currentSeconds
+  _isPlaying
 
-initialHours = '00'
-initialMinutes = '05'
-initialSeconds = '00'
-pomodoroTimer = initialHours + ':' + initialMinutes + ':' + initialSeconds
-window.addEventListener('load', () => {
-  document.getElementById('pomodoroTimer').innerHTML = pomodoroTimer
-  startTimer()
-})
+  constructor() {
+    this._initialHours = '00'
+    this._initialMinutes = '05'
+    this._initialSeconds = '00'
+    this._currentHours = parseInt(this._initialHours)
+    this._currentMinutes = parseInt(this._initialMinutes)
+    this._currentSeconds = parseInt(this._initialSeconds)
+    this._isPlaying = false
+  }
 
-function handleTimeSelection(event) {
-  pomodoroTimer = event.target.dataset.time
-  updatePresetTimes()
-  updateInitialTime()
-  updateCurrentTime()
-  handleTimerReload()
-}
+  get isPlaying() {
+    return this._isPlaying
+  }
 
-function updatePresetTimes() {
-  const optionItems = document.querySelectorAll('.container__options-item')
-  optionItems.forEach(option => {
-    if (option.dataset.time === pomodoroTimer)
-      option.classList.add('selected')
-    else
-      option.classList.remove('selected')
-  })
-}
+  handleTimerExecution(play) {
+    if (play) this.playTimer()
+    else this.pauseTimer()
+  }
 
-function updateInitialTime() {
-  timerElements = pomodoroTimer.split(':')
+  handleTimerSelection(timer) {
+    this.updateInitialTime(timer)
+    this.updateCurrentTime()
+  }
 
-  initialHours = timerElements[0]
-  initialMinutes = timerElements[1]
-  initialSeconds = timerElements[2]
-}
+  decreaseTimer() {
+    this._currentSeconds = this._currentSeconds > 0 ? this._currentSeconds - 1 : 59
+    this._currentMinutes = this._currentSeconds === 59 && this._currentMinutes > 0 ? this._currentMinutes - 1 : this._currentMinutes
+    this._currentHours = this._currentMinutes === 59 && this._currentHours > 0 ? this._currentHours - 1 : this._currentHours
+  }
 
-function updateCurrentTime() {
-  currentHours = parseInt(initialHours)
-  currentMinutes = parseInt(initialMinutes)
-  currentSeconds = parseInt(initialSeconds)
-}
+  timeIsOver() {
+    return this._currentHours === 0 && this._currentMinutes === 0 && this._currentSeconds === 0
+  }
 
-currentHours = parseInt(initialHours)
-currentMinutes = parseInt(initialMinutes)
-currentSeconds = parseInt(initialSeconds)
-isPlaying = false
-setIntervalId = null
-function startTimer() {
-  setIntervalId = setInterval(() => {
-    if (isPlaying) {
-      decreaseTimer()
-      changeTimerValue()
-      if (timeIsOver())
-        stopTimer()
-    }
-  }, oneSecond)
-}
+  handleTimerReload() {
+    this.pauseTimer()
+    this.resetHours()
+    this.resetMinutes()
+    this.resetSeconds()
+  }
 
-function stopTimer() {
-  pauseTimer()
-  resetHours()
-  resetMinutes()
-  resetSeconds()
-  changeExecuteImage()
-  playAlarm()
-}
+  playTimer() {
+    this._isPlaying = true
+  }
 
-function decreaseTimer() {
-  currentSeconds = currentSeconds > 0 ? currentSeconds - 1 : 59
-  currentMinutes = currentSeconds === 59 && currentMinutes > 0 ? currentMinutes - 1 : currentMinutes
-  currentHours = currentMinutes === 59 && currentHours > 0 ? currentHours - 1 : currentHours
-}
+  pauseTimer() {
+    this._isPlaying = false
+  }
 
-function handleTimerExecution() {
-  if (isPlaying) pauseTimer()
-  else playTimer()
-  changeExecuteImage()
-}
+  resetHours() {
+    this._currentHours = parseInt(this._initialHours)
+  }
 
-function playTimer() {
-  isPlaying = true
-}
+  resetMinutes() {
+    this._currentMinutes = parseInt(this._initialMinutes)
+  }
 
-function pauseTimer() {
-  isPlaying = false
-}
+  resetSeconds() {
+    this._currentSeconds = parseInt(this._initialSeconds)
+  }
 
-function changeExecuteImage() {
-  document.getElementById('execute').src = isPlaying ? 'src/pause.png' : 'src/play.png'
-}
+  getTimeFormatted() {
+    return this.formatHours() + ':' + this.formatMinutes() + ':' + this.formatSeconds()
+  }
 
-function handleTimerReload() {
-  pauseTimer()
-  resetHours()
-  resetSeconds()
-  resetMinutes()
-  changeTimerValue()
-  changeExecuteImage()
-}
+  formatHours() {
+    return this._currentHours >= 10 ? this._currentHours.toString() : '0' + this._currentHours.toString()
+  }
 
-function resetHours() {
-  currentHours = parseInt(initialHours)
-}
+  formatMinutes() {
+    return this._currentMinutes >= 10 ? this._currentMinutes.toString() : '0' + this._currentMinutes.toString()
+  }
 
-function resetMinutes() {
-  currentMinutes = parseInt(initialMinutes)
-}
+  formatSeconds() {
+    return this._currentSeconds >= 10 ? this._currentSeconds.toString() : '0' + this._currentSeconds.toString()
+  }
 
-function resetSeconds() {
-  currentSeconds = parseInt(initialSeconds)
-}
+  timeIsOver() {
+    return this._currentHours === 0 && this._currentMinutes === 0 && this._currentSeconds === 0
+  }
 
-function changeTimerValue() {
-  formatTimer()
-  document.getElementById('pomodoroTimer').innerHTML = pomodoroTimer
-}
+  updateInitialTime(timer) {
+    const timerElements = timer.split(':')
 
-function formatTimer() {
-  pomodoroTimer = formatHours() + ':' + formatMinutes() + ':' + formatSeconds()
-}
+    this._initialHours = timerElements[0]
+    this._initialMinutes = timerElements[1]
+    this._initialSeconds = timerElements[2]
+  }
 
-function formatHours() {
-  return this.currentHours >= 10 ? this.currentHours.toString() : '0' + this.currentHours.toString()
-}
-
-function formatMinutes() {
-  return this.currentMinutes >= 10 ? this.currentMinutes.toString() : '0' + this.currentMinutes.toString()
-}
-
-function formatSeconds() {
-  return this.currentSeconds >= 10 ? this.currentSeconds.toString() : '0' + this.currentSeconds.toString()
-}
-
-function timeIsOver() {
-  return currentHours === 0 && currentMinutes === 0 && currentSeconds === 0
-}
-
-function playAlarm() {
-  document.getElementById('alarm').play();
+  updateCurrentTime() {
+    this._currentHours = parseInt(this._initialHours)
+    this._currentMinutes = parseInt(this._initialMinutes)
+    this._currentSeconds = parseInt(this._initialSeconds)
+  }
 }
