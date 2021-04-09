@@ -57,6 +57,8 @@ button {
   border-radius: 5px;
   width: 50px;
   margin: 1%;
+  outline: none;
+  background-color: #fff;
 }
 
 .open__options-custom {
