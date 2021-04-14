@@ -1,16 +1,16 @@
 import Timer from './timer.js'
 
 const oneSecond = 1000
-const pomodoroTitle = 'Pomodoro Timer'
+const timerTitle = 'Me Temporiza'
 const fiveMinutes = '5'
 const twentyFiveMinutes = '25'
 const fiftyMinutes = '50'
 const timer = new Timer()
-let pomodoroTimer
+let timerFormatted
 window.addEventListener('load', () => {
   putCustomTimerOptionsOnScreen()
   changeTimerValueOnScreen()
-  document.getElementById('pomodoroTitle').innerHTML = pomodoroTitle
+  document.getElementById('timer-title').innerHTML = timerTitle
   document.getElementById('5minutes').innerHTML = fiveMinutes
   document.getElementById('25minutes').innerHTML = twentyFiveMinutes
   document.getElementById('50minutes').innerHTML = fiftyMinutes
@@ -65,7 +65,7 @@ function handleTimerSelection(event) {
 function updatePresetTimes() {
   const optionItems = document.querySelectorAll('.container__options-item')
   optionItems.forEach(option => {
-    if (option.dataset.time === pomodoroTimer)
+    if (option.dataset.time === timerFormatted)
       option.classList.add('selected')
     else
       option.classList.remove('selected')
@@ -88,8 +88,8 @@ function putCustomTimerOptionsOnScreen() {
 }
 
 function changeTimerValueOnScreen() {
-  pomodoroTimer = timer.getTimeFormatted()
-  document.getElementById('pomodoroTimer').innerHTML = pomodoroTimer
+  timerFormatted = timer.getTimeFormatted()
+  document.getElementById('timer-formatted').innerHTML = timerFormatted
 }
 
 function changeExecuteImage() {

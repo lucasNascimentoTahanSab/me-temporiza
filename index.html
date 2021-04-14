@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="./style/meTemporiza.css">
+    <script type="module" src="js/index.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="container__timer">
+        <article class="container__options-custom close" id="custom-options">
+          <select class="container__options-custom-item clickable" id="custom-hours"></select>
+          <select class="container__options-custom-item clickable" id="custom-minutes"></select>
+          <select class="container__options-custom-item clickable" id="custom-seconds"></select>
+        </article>
+        <div class="open__options-custom clickable close" id="custom-options-button">
+          <div class="first">
+            <div class="stick upper rotate-right"></div>
+            <div class="stick lower rotate-left"></div>
+          </div>
+          <div class="second">
+            <div class="stick upper rotate-right"></div>
+            <div class="stick lower rotate-left"></div>
+          </div>
+        </div>
+        <article class="container__options">
+          <span class="container__options-item selected clickable" id="5minutes" data-time="00:05:00"></span>
+          <span class=" container__options-item clickable" id="25minutes" data-time="00:25:00"></span>
+          <span class="container__options-item clickable" id="50minutes" data-time="00:50:00"></span>
+        </article>
+        <div class="container__timer-box">
+          <div class="timer" id="timer-title"></div>
+          <div class="timer" id="timer-formatted"></div>
+          <div class="container__buttons">
+            <button id="execute-button">
+              <img id="execute" src="src/play.png">
+            </button>
+            <button id="reload-button">
+              <img src="src/reload.png">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <audio id="alarm" src="src/alarm.mp3"></audio>
+
+</html>
