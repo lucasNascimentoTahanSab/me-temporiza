@@ -1,50 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   <head>
-    <link rel="stylesheet" href="./style/meTemporiza.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="src/logo.png">
+    <link rel="stylesheet" href="style/style.css">
     <script type="module" src="js/index.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QYXGSGEKF0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-QYXGSGEKF0');
+    </script>
+    <title>Me Temporiza!</title>
   </head>
 
   <body>
-    <div class="container">
-      <div class="container__timer">
-        <article class="container__options-custom close" id="custom-options">
-          <select class="container__options-custom-item clickable" id="custom-hours"></select>
-          <select class="container__options-custom-item clickable" id="custom-minutes"></select>
-          <select class="container__options-custom-item clickable" id="custom-seconds"></select>
-        </article>
-        <div class="open__options-custom clickable close" id="custom-options-button">
-          <div class="first">
-            <div class="stick upper rotate-right"></div>
-            <div class="stick lower rotate-left"></div>
-          </div>
-          <div class="second">
-            <div class="stick upper rotate-right"></div>
-            <div class="stick lower rotate-left"></div>
-          </div>
+    <section class="timer-container">
+      <header class="timer-header">
+        <h1 id="timer-title"></h1>
+      </header>
+      <main class="timer-body">
+        <div class="timer__options">
+          <span class="timer__options--item selected clickable" id="5minutes" data-time="00:05:00"></span>
+          <span class=" timer__options--item clickable" id="25minutes" data-time="00:25:00"></span>
+          <span class="timer__options--item clickable" id="50minutes" data-time="00:50:00"></span>
         </div>
-        <article class="container__options">
-          <span class="container__options-item selected clickable" id="5minutes" data-time="00:05:00"></span>
-          <span class=" container__options-item clickable" id="25minutes" data-time="00:25:00"></span>
-          <span class="container__options-item clickable" id="50minutes" data-time="00:50:00"></span>
-        </article>
-        <div class="container__timer-box">
-          <div class="timer" id="timer-title"></div>
-          <div class="timer" id="timer-formatted"></div>
-          <div class="container__buttons">
-            <button id="execute-button">
+        <div class="timer__content">
+          <span class="timer__content--item" id="timer-formatted"></span>
+          <div class="timer__content--item timer__content--buttons">
+            <button class="timer__content--button-item" id="execute-button">
               <img id="execute" src="src/play.png">
             </button>
-            <button id="reload-button">
+            <button class="timer__content--button-item" id="reload-button">
               <img src="src/reload.png">
             </button>
           </div>
         </div>
-      </div>
-    </div>
+      </main>
+    </section>
+    <audio id="alarm" src="src/alarm.mp3"></audio>
   </body>
-
-  <audio id="alarm" src="src/alarm.mp3"></audio>
 
 </html>

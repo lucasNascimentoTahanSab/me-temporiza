@@ -1,23 +1,18 @@
 import Timer from './timer.js'
 
 const oneSecond = 1000
-const timerTitle = 'Me Temporiza'
+const timerTitle = 'Me Temporiza!'
 const fiveMinutes = '5'
 const twentyFiveMinutes = '25'
 const fiftyMinutes = '50'
 const timer = new Timer()
 let timerFormatted
 window.addEventListener('load', () => {
-  putCustomTimerOptionsOnScreen()
   changeTimerValueOnScreen()
   document.getElementById('timer-title').innerHTML = timerTitle
   document.getElementById('5minutes').innerHTML = fiveMinutes
   document.getElementById('25minutes').innerHTML = twentyFiveMinutes
   document.getElementById('50minutes').innerHTML = fiftyMinutes
-  document.getElementById('custom-hours').addEventListener('change', () => handleCustomTimerSelection())
-  document.getElementById('custom-minutes').addEventListener('change', () => handleCustomTimerSelection())
-  document.getElementById('custom-seconds').addEventListener('change', () => handleCustomTimerSelection())
-  document.getElementById('custom-options-button').addEventListener('click', () => openCustomOptions())
   document.getElementById('5minutes').addEventListener('click', event => handleTimerSelection(event))
   document.getElementById('25minutes').addEventListener('click', event => handleTimerSelection(event))
   document.getElementById('50minutes').addEventListener('click', event => handleTimerSelection(event))
@@ -46,14 +41,6 @@ function handleTimerExecution() {
   changeExecuteImage()
 }
 
-function handleCustomTimerSelection() {
-  const customHours = document.getElementById('custom-hours')
-  const customMinutes = document.getElementById('custom-minutes')
-  const customSeconds = document.getElementById('custom-seconds')
-  timer.handleTimerSelection(getCustomTimeFormatted(customHours, customMinutes, customSeconds))
-  changeTimerValueOnScreen()
-}
-
 function handleTimerSelection(event) {
   timer.handleTimerSelection(event.target.dataset.time)
 
@@ -63,7 +50,7 @@ function handleTimerSelection(event) {
 }
 
 function updatePresetTimes() {
-  const optionItems = document.querySelectorAll('.container__options-item')
+  const optionItems = document.querySelectorAll('.timer__options--item')
   optionItems.forEach(option => {
     if (option.dataset.time === timerFormatted)
       option.classList.add('selected')
@@ -78,15 +65,6 @@ function handleTimerReload() {
   changeExecuteImage()
 }
 
-function putCustomTimerOptionsOnScreen() {
-  const customHours = document.getElementById('custom-hours')
-  const customMinutes = document.getElementById('custom-minutes')
-  const customSeconds = document.getElementById('custom-seconds')
-  setTimer(customHours, 0, 24)
-  setTimer(customMinutes, 0, 60)
-  setTimer(customSeconds, 0, 60)
-}
-
 function changeTimerValueOnScreen() {
   timerFormatted = timer.getTimeFormatted()
   document.getElementById('timer-formatted').innerHTML = timerFormatted
@@ -97,51 +75,5 @@ function changeExecuteImage() {
 }
 
 function playAlarm() {
-  document.getElementById('alarm').play();
-}
-
-function setTimer(timer, begin, end) {
-  for (let option = begin; option < end; option++)
-    timer.innerHTML += `<option value="${option}">${option}</option>`
-}
-
-function getCustomTimeFormatted(customHours, customMinutes, customSeconds) {
-  if (!customHours || !customMinutes || !customSeconds) return ''
-
-  const hours = customHours.value
-  const minutes = customMinutes.value
-  const seconds = customSeconds.value
-  return `${hours}:${minutes}:${seconds}`
-}
-
-function openCustomOptions() {
-  const customOptions = document.getElementById('custom-options');
-  const customOptionsButton = document.getElementById('custom-options-button');
-  if (customOptions.classList.contains('close')) {
-    customOptions.classList.remove('close')
-    customOptions.classList.add('open')
-    customOptionsButton.classList.remove('close')
-    customOptionsButton.classList.add('open')
-    rotateSticks()
-  } else {
-    customOptions.classList.remove('open')
-    customOptions.classList.add('close')
-    customOptionsButton.classList.remove('open')
-    customOptionsButton.classList.add('close')
-    rotateSticks()
-  }
-}
-
-function rotateSticks() {
-  const sticks = document.querySelectorAll('.stick');
-  if (sticks.length > 0)
-    sticks.forEach(stick => {
-      if (stick.classList.contains('rotate-right')) {
-        stick.classList.remove('rotate-right')
-        stick.classList.add('rotate-left')
-      } else if (stick.classList.contains('rotate-left')) {
-        stick.classList.remove('rotate-left')
-        stick.classList.add('rotate-right')
-      }
-    })
+  document.getElementById('alarm').play()
 }
