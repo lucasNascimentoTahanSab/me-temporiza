@@ -261,6 +261,11 @@ body {
   border-radius: 10px;
   border-style: none;
   font-family: 'Lato', sans-serif;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
   background-color: #BB8FCE;
   color: #741384;
+}
+
+.button:active {
+  box-shadow: none;
 }

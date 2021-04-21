@@ -5,11 +5,11 @@ const timer = new Timer()
 let timerFormatted
 window.addEventListener('load', () => {
   changeTimerValueOnScreen()
-  document.getElementById('5minutes').addEventListener('click', event => handleTimerSelection(event))
-  document.getElementById('25minutes').addEventListener('click', event => handleTimerSelection(event))
-  document.getElementById('50minutes').addEventListener('click', event => handleTimerSelection(event))
-  document.getElementById('execute-button').addEventListener('click', () => handleTimerExecution())
-  document.getElementById('reload-button').addEventListener('click', () => handleTimerReload())
+  document.getElementById('5minutes').addEventListener('click', event => selectTimer(event))
+  document.getElementById('25minutes').addEventListener('click', event => selectTimer(event))
+  document.getElementById('50minutes').addEventListener('click', event => selectTimer(event))
+  document.getElementById('execute-button').addEventListener('click', () => executeTimer())
+  document.getElementById('reload-button').addEventListener('click', () => reloadTimer())
   document.getElementById('left-last').addEventListener('click', () => goToLast())
   document.getElementById('right-second').addEventListener('click', () => goToRight())
   document.getElementById('left-home').addEventListener('click', () => goToLeft())
@@ -20,6 +20,7 @@ window.addEventListener('load', () => {
   document.getElementById('right-last').addEventListener('click', () => goToRight())
   document.getElementById('left-fourth').addEventListener('click', () => goToLeft())
   document.getElementById('right-home').addEventListener('click', () => goToHome())
+  document.getElementById('submit-message').addEventListener('click', event => submitMessage(event))
   startTimer()
 })
 
@@ -29,25 +30,25 @@ function startTimer() {
       timer.decreaseTimer()
       changeTimerValueOnScreen()
       if (timer.timeIsOver()) {
-        timer.handleTimerReload()
+        timer.reloadTimer()
         playAlarm()
       }
     }
   }, oneSecond)
 }
 
-function handleTimerExecution() {
-  if (timer.isPlaying) timer.handleTimerExecution(false)
-  else timer.handleTimerExecution(true)
+function executeTimer() {
+  if (timer.isPlaying) timer.executeTimer(false)
+  else timer.executeTimer(true)
   changeExecuteImage()
 }
 
-function handleTimerSelection(event) {
-  timer.handleTimerSelection(event.target.dataset.time)
+function selectTimer(event) {
+  timer.selectTimer(event.target.dataset.time)
 
   changeTimerValueOnScreen()
   updatePresetTimes()
-  handleTimerReload()
+  reloadTimer()
 }
 
 function updatePresetTimes() {
@@ -60,8 +61,8 @@ function updatePresetTimes() {
   })
 }
 
-function handleTimerReload() {
-  timer.handleTimerReload()
+function reloadTimer() {
+  timer.reloadTimer()
   changeTimerValueOnScreen()
   changeExecuteImage()
 }
@@ -99,4 +100,8 @@ function goToHome() {
 function goToLast() {
   const slideShow = document.getElementById('slide-show')
   slideShow.scrollLeft += slideShow.scrollWidth
+}
+
+function submitMessage(event) {
+  event.preventDefault();
 }
