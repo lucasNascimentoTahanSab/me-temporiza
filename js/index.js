@@ -1,18 +1,10 @@
 import Timer from './timer.js'
 
 const oneSecond = 1000
-const timerTitle = 'Me Temporiza!'
-const fiveMinutes = '5'
-const twentyFiveMinutes = '25'
-const fiftyMinutes = '50'
 const timer = new Timer()
 let timerFormatted
 window.addEventListener('load', () => {
   changeTimerValueOnScreen()
-  document.getElementById('timer-title').innerHTML = timerTitle
-  document.getElementById('5minutes').innerHTML = fiveMinutes
-  document.getElementById('25minutes').innerHTML = twentyFiveMinutes
-  document.getElementById('50minutes').innerHTML = fiftyMinutes
   document.getElementById('5minutes').addEventListener('click', event => handleTimerSelection(event))
   document.getElementById('25minutes').addEventListener('click', event => handleTimerSelection(event))
   document.getElementById('50minutes').addEventListener('click', event => handleTimerSelection(event))

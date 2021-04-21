@@ -28,19 +28,18 @@
       <!-- Home page -->
       <div class="inner-container dark-page" id="home-page">
         <div class="content-container">
-          <span></span>
+          <span class="arrow left hidden"></span>
           <section class="timer">
             <header class="timer-header">
               <h1 class="timer-header--title">Me Temporiza!</h1>
-              <p>Sinta a sensação de “missão cumprida” a cada tarefa finalizada!</p>
               <p>Temporize aqui o tempo que você utiliza em cada atividade!</p>
             </header>
             <article class="timer-body">
-              <article class="timer__options">
-                <span class="timer__options--item selected clickable" id="5minutes" data-time="00:05:00"></span>
-                <span class=" timer__options--item clickable" id="25minutes" data-time="00:25:00"></span>
-                <span class="timer__options--item clickable" id="50minutes" data-time="00:50:00"></span>
-              </article>
+              <div class="timer__options">
+                <span class="timer__options--item clickable selected" id="5minutes" data-time="00:05:00">5</span>
+                <span class=" timer__options--item clickable" id="25minutes" data-time="00:25:00">25</span>
+                <span class="timer__options--item clickable" id="50minutes" data-time="00:50:00">50</span>
+              </div>
               <div class="timer__content">
                 <span class="timer__content--item" id="timer-formatted"></span>
                 <div class="timer__content--item timer__content--buttons">
@@ -54,14 +53,14 @@
               </div>
             </article>
           </section>
-          <span></span>
+          <span class="arrow right clickable"></span>
         </div>
       </div>
 
       <!-- Second page -->
       <div class="inner-container light-page" id="second-page">
         <div class="content-container">
-          <span></span>
+          <span class="arrow left clickable"></span>
           <section>
             <h1></h1>
           </section>
@@ -70,14 +69,14 @@
             <div></div>
             <div></div>
           </article>
-          <span></span>
+          <span class="arrow right clickable"></span>
         </div>
       </div>
 
       <!-- Third page -->
       <div class="inner-container light-page" id="third-page">
         <div class="content-container">
-          <span></span>
+          <span class="arrow left clickable"></span>
           <section>
             <h1></h1>
           </section>
@@ -86,25 +85,25 @@
             <div></div>
             <div></div>
           </article>
-          <span></span>
+          <span class="arrow right clickable"></span>
         </div>
       </div>
 
       <!-- Fourth page -->
       <div class="inner-container light-page" id="fourth-page">
         <div class="content-container">
-          <span></span>
+          <span class="arrow left clickable"></span>
           <section>
             <h1></h1>
           </section>
-          <span></span>
+          <span class="arrow right clickable"></span>
         </div>
       </div>
 
       <!-- Last page -->
       <div class="inner-container dark-page" id="last-page">
         <div class="content-container">
-          <span></span>
+          <span class="arrow left clickable"></span>
           <section>
             <h1></h1>
           </section>
@@ -114,38 +113,12 @@
             <div></div>
             <footer></footer>
           </article>
-          <span></span>
+          <span class="arrow right clickable"></span>
         </div>
       </div>
     </main>
 
-    <!-- <section class="container timer">
-      <header class="timer-header">
-        <h1 id="timer-title" class="timer-header__title"></h1>
-        <div class="timer-header__subtitle">
-          <p>Sinta a sensação de “missão cumprida” a cada tarefa finalizada!</p>
-          <p>Temporize aqui o tempo que você utiliza em cada atividade!</p>
-        </div>
-      </header>
-      <main class="timer-body">
-        <article class="timer__options">
-          <span class="timer__options--item selected clickable" id="5minutes" data-time="00:05:00"></span>
-          <span class=" timer__options--item clickable" id="25minutes" data-time="00:25:00"></span>
-          <span class="timer__options--item clickable" id="50minutes" data-time="00:50:00"></span>
-        </article>
-        <div class="timer__content">
-          <span class="timer__content--item" id="timer-formatted"></span>
-          <div class="timer__content--item timer__content--buttons">
-            <button class="timer__content--button-item" id="execute-button">
-              <img id="execute" src="src/play.png" width="70%">
-            </button>
-            <button class="timer__content--button-item" id="reload-button">
-              <img src="src/reload.png" width="70%">
-            </button>
-          </div>
-        </div>
-      </main>
-    </section>
+    <!-- 
     <article class="container content">
       <section class="content__section">
         <h2 class="content-title">“Tempo é dinheiro”, você já ouviu esta frase?</h2>
