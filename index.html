@@ -24,10 +24,10 @@
   </head>
 
   <body>
-    <main class="container">
+    <main class="container" id="slide-show">
       <div class="inner-container dark-page" id="home-page">
         <div class="content-container">
-          <span class="arrow left light-border hidden"></span>
+          <span class="arrow left light-border clickable" id="left-last"></span>
           <section class="timer">
             <header class="timer-header">
               <h1 class="timer-header--title">Me Temporiza!</h1>
@@ -52,13 +52,13 @@
               </div>
             </article>
           </section>
-          <span class="arrow right light-border clickable"></span>
+          <span class="arrow right light-border clickable" id="right-second"></span>
         </div>
       </div>
 
       <div class="inner-container light-page" id="second-page">
         <div class="content-container">
-          <span class="arrow left dark-border clickable"></span>
+          <span class="arrow left dark-border clickable" id="left-home"></span>
           <section class="title-section">
             <h2 class="title-section--title">“Tempo é dinheiro”, você já ouviu esta frase?</h2>
           </section>
@@ -79,13 +79,13 @@
               </p>
             </div>
           </article>
-          <span class="arrow right dark-border clickable"></span>
+          <span class="arrow right dark-border clickable" id="right-third"></span>
         </div>
       </div>
 
       <div class="inner-container light-page" id="third-page">
         <div class="content-container">
-          <span class="arrow left dark-border clickable"></span>
+          <span class="arrow left dark-border clickable" id="left-second"></span>
           <section class="title-section">
             <h2 class="title-section--title">Quer saber como você pode fazer isso?</h2>
           </section>
@@ -110,26 +110,26 @@
               </li>
             </ul>
           </article>
-          <span class="arrow right dark-border clickable"></span>
+          <span class="arrow right dark-border clickable" id="right-fourth"></span>
         </div>
       </div>
 
       <div class="inner-container light-page" id="fourth-page">
         <div class="content-container">
-          <span class="arrow left dark-border clickable"></span>
+          <span class="arrow left dark-border clickable" id="left-third"></span>
           <section class="title-section">
             <h2 class="title-section--title">
               <p>Cronometre, execute e descanse!</p>
               <p>E aí, já deu o play no Me Temporiza?</p>
             </h2>
           </section>
-          <span class="arrow right dark-border clickable"></span>
+          <span class="arrow right dark-border clickable" id="right-last"></span>
         </div>
       </div>
 
       <div class="inner-container dark-page" id="last-page">
         <div class="content-container">
-          <span class="arrow left light-border clickable"></span>
+          <span class="arrow left light-border clickable" id="left-fourth"></span>
           <section class="title-section">
             <h2 class="title-section--title">Curtiu a ideia?</h2>
           </section>
@@ -148,9 +148,11 @@
               <button class="button content-highlight">Enviar</button>
             </form>
           </article>
-          <span class="arrow right light-border hidden"></span>
+          <span class="arrow right light-border clickable" id="right-home"></span>
         </div>
       </div>
+
+      <div class="pseudo-slide dark-page">&nbsp;</div>
     </main>
     <audio id="alarm" src="src/alarm.mp3"></audio>
   </body>
