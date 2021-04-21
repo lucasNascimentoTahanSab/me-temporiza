@@ -25,7 +25,6 @@
 
   <body>
     <main class="container">
-      <!-- Home page -->
       <div class="inner-container dark-page" id="home-page">
         <div class="content-container">
           <span class="arrow left light-border hidden"></span>
@@ -57,7 +56,6 @@
         </div>
       </div>
 
-      <!-- Second page -->
       <div class="inner-container light-page" id="second-page">
         <div class="content-container">
           <span class="arrow left dark-border clickable"></span>
@@ -85,7 +83,6 @@
         </div>
       </div>
 
-      <!-- Third page -->
       <div class="inner-container light-page" id="third-page">
         <div class="content-container">
           <span class="arrow left dark-border clickable"></span>
@@ -94,34 +91,29 @@
           </section>
           <div class="division"></div>
           <article class="content-section">
-            <div class="content-section--content">
-              <p>
-                Usando o <span class="content-highlight">Me Temporiza</span> para gerenciar o seu tempo e ter mais
-                produtividade em cada demanda da sua rotina! Assim, você consegue:
-              </p>
-            </div>
-            <div class="content-section--content">
-              <ul class="content-topics">
-                <li class="content-topics__item">
-                  Dividir suas atividades em <span class="content-highlight">etapas e ciclos</span>;
-                </li>
-                <li class="content-topics__item">
-                  Ter <span class="content-highlight">eficiência</span> narealização das suas tarefas;
-                </li>
-                <li class="content-topics__item">
-                  <span class="content-highlight">Evitar distrações</span> e saber o que cada prática exige de você;
-                </li>
-                <li class="content-topics__item">
-                  E ainda pode <span class="content-highlight">se recompensar</span> pelos seus avanços!
-                </li>
-              </ul>
-            </div>
+            <p>
+              Usando o <span class="content-highlight">Me Temporiza</span> para gerenciar o seu tempo e ter mais
+              produtividade em cada demanda da sua rotina! Assim, você consegue:
+            </p>
+            <ul class="content-topics">
+              <li class="content-topics__item">
+                Dividir suas atividades em <span class="content-highlight">etapas e ciclos</span>;
+              </li>
+              <li class="content-topics__item">
+                Ter <span class="content-highlight">eficiência</span> narealização das suas tarefas;
+              </li>
+              <li class="content-topics__item">
+                <span class="content-highlight">Evitar distrações</span> e saber o que cada prática exige de você;
+              </li>
+              <li class="content-topics__item">
+                E ainda pode <span class="content-highlight">se recompensar</span> pelos seus avanços!
+              </li>
+            </ul>
           </article>
           <span class="arrow right dark-border clickable"></span>
         </div>
       </div>
 
-      <!-- Fourth page -->
       <div class="inner-container light-page" id="fourth-page">
         <div class="content-container">
           <span class="arrow left dark-border clickable"></span>
@@ -135,7 +127,6 @@
         </div>
       </div>
 
-      <!-- Last page -->
       <div class="inner-container dark-page" id="last-page">
         <div class="content-container">
           <span class="arrow left light-border clickable"></span>
@@ -144,15 +135,17 @@
           </section>
           <div class="division"></div>
           <article class="content-section">
-            <div class="content-section--content">
-              Manda suas sugestões e comentários para a gente, vamos adorar ler!
-            </div>
-            <form>
-              <label></label>
-              <input></input>
-              <label></label>
-              <input></input>
-              <button></button>
+            <form class="content-section">
+              <p>Manda suas sugestões e comentários para a gente, vamos adorar ler!</p>
+              <div class="form-element">
+                <label for="message-title">Título:</label>
+                <input class="text-input" id="message-title"></input>
+              </div>
+              <div class="form-element">
+                <label for="message-body">Sua mensagem vem aqui:</label>
+                <textarea class="text-input large" id="message-body"></textarea>
+              </div>
+              <button class="button content-highlight">Enviar</button>
             </form>
           </article>
           <span class="arrow right light-border hidden"></span>

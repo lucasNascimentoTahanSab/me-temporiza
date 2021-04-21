@@ -62,6 +62,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  flex: 2;
   height: 100%;
 }
 
@@ -179,6 +180,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 2;
   text-align: center;
   font-size: 2rem;
 }
@@ -193,6 +195,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex: 2;
   gap: 8%;
   height: 100%;
   text-align: center;
@@ -219,4 +222,40 @@ body {
   height: .1rem;
   width: .7rem;
   background-color: #D7BDE2;
+}
+
+.form-element {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+}
+
+.text-input {
+  width: 100%;
+  padding: .5rem;
+  outline: none;
+  border-radius: 10px;
+  border-style: none;
+  text-align: left;
+  font-family: 'Lato', sans-serif;
+  background-color: #E8DAEF;
+  color: #273746;
+}
+
+.large {
+  height: 8rem;
+  resize: none;
+}
+
+.button {
+  width: 50%;
+  padding: .5rem;
+  border-radius: 10px;
+  border-style: none;
+  font-family: 'Lato', sans-serif;
+  background-color: #BB8FCE;
+  color: #741384;
 }
