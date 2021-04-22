@@ -164,20 +164,6 @@ body {
   transform: rotate(-45deg);
 }
 
-.top {
-  border-left: 1px solid;
-  border-top: 1px solid;
-  transform: rotate(45deg);
-  display: none;
-}
-
-.bottom {
-  border-left: 1px solid;
-  border-top: 1px solid;
-  transform: rotate(-135deg);
-  display: none;
-}
-
 .dark-border {
   border-color: #273746;
 }
@@ -234,12 +220,6 @@ body {
   margin-bottom: 2%;
 }
 
-.list-indicator {
-  height: .1rem;
-  width: .7rem;
-  background-color: #D7BDE2;
-}
-
 .form-element {
   width: 100%;
   max-height: 50%;
@@ -292,14 +272,8 @@ body {
     box-shadow: none;
   }
 
-  .top,
-  .bottom {
-    display: block;
-  }
-
-  .arrow.left,
-  .arrow.right {
-    visibility: hidden;
+  .arrow {
+    display: none;
   }
 
   .content-container {
