@@ -164,16 +164,26 @@ body {
   transform: rotate(-45deg);
 }
 
+.top {
+  border-left: 1px solid;
+  border-top: 1px solid;
+  transform: rotate(45deg);
+  display: none;
+}
+
+.bottom {
+  border-left: 1px solid;
+  border-top: 1px solid;
+  transform: rotate(-135deg);
+  display: none;
+}
+
 .dark-border {
   border-color: #273746;
 }
 
 .light-border {
   border-color: #E8DAEF;
-}
-
-.hidden {
-  visibility: hidden;
 }
 
 .division {
@@ -271,7 +281,7 @@ body {
   box-shadow: none;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 560px) {
   .container {
     flex-direction: column;
   }
@@ -283,7 +293,13 @@ body {
     box-shadow: none;
   }
 
-  .arrow {
+  .top,
+  .bottom {
+    display: block;
+  }
+
+  .arrow.left,
+  .arrow.right {
     visibility: hidden;
   }
 
@@ -294,5 +310,9 @@ body {
   .division {
     width: 100%;
     height: .1rem;
+  }
+
+  .pseudo-slide {
+    visibility: hidden;
   }
 }
