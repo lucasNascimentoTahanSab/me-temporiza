@@ -12,20 +12,12 @@ window.addEventListener('load', () => {
   document.getElementById('reload-button').addEventListener('click', () => reloadTimer())
   document.getElementById('left-last').addEventListener('click', () => goToLast())
   document.getElementById('right-second').addEventListener('click', () => goToRight())
-  document.getElementById('bottom-second').addEventListener('click', () => goToBottom())
-  document.getElementById('top-home').addEventListener('click', () => goToTop())
   document.getElementById('left-home').addEventListener('click', () => goToLeft())
   document.getElementById('right-third').addEventListener('click', () => goToRight())
-  document.getElementById('bottom-third').addEventListener('click', () => goToBottom())
-  document.getElementById('top-second').addEventListener('click', () => goToTop())
   document.getElementById('left-second').addEventListener('click', () => goToLeft())
   document.getElementById('right-fourth').addEventListener('click', () => goToRight())
-  document.getElementById('bottom-fourth').addEventListener('click', () => goToBottom())
-  document.getElementById('top-third').addEventListener('click', () => goToTop())
   document.getElementById('left-third').addEventListener('click', () => goToLeft())
   document.getElementById('right-last').addEventListener('click', () => goToRight())
-  document.getElementById('bottom-last').addEventListener('click', () => goToBottom())
-  document.getElementById('top-fourth').addEventListener('click', () => goToTop())
   document.getElementById('left-fourth').addEventListener('click', () => goToLeft())
   document.getElementById('right-home').addEventListener('click', () => goToHome())
   document.getElementById('submit-message').addEventListener('click', event => submitMessage(event))
@@ -98,18 +90,6 @@ function goToLeft() {
   const slideShow = document.getElementById('slide-show')
   const slideSize = slideShow.firstElementChild.clientWidth + (2 * slideShow.firstElementChild.offsetLeft)
   slideShow.scrollLeft -= slideSize
-}
-
-function goToBottom() {
-  const slideShow = document.getElementById('slide-show')
-  const slideSize = slideShow.firstElementChild.clientHeight
-  slideShow.scrollTop += slideSize
-}
-
-function goToTop() {
-  const slideShow = document.getElementById('slide-show')
-  const slideSize = slideShow.firstElementChild.clientHeight
-  slideShow.scrollTop -= slideSize
 }
 
 function goToHome() {
