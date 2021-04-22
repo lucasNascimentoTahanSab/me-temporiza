@@ -24,6 +24,7 @@ body {
   height: 100vh;
   overflow-x: hidden;
   font-family: 'Lato', sans-serif;
+  font-size: calc(.5em + 0.75vw);
   scroll-behavior: smooth;
 }
 
@@ -78,13 +79,14 @@ body {
 
 .timer-header--title {
   font-family: 'Lobster', cursive;
+  font-size: calc(.5em + 3vw);
   font-weight: 500;
-  font-size: 3rem;
 }
 
 .timer-body {
-  width: 15rem;
-  height: fit-content;
+  display: inline-block;
+  width: 15vw;
+  min-width: 15rem;
   font-weight: bold;
   color: #273746;
 }
@@ -93,7 +95,6 @@ body {
   display: flex;
   flex-shrink: 0;
   width: 70%;
-  height: fit-content;
   overflow: hidden;
   border-radius: 10px 10px 0 0;
   font-size: large;
@@ -187,11 +188,11 @@ body {
   justify-content: center;
   flex: 2;
   text-align: center;
-  font-size: 2rem;
 }
 
 .title-section--title {
   font-family: 'Lobster', cursive;
+  font-size: calc(.5em + 3vw);
   font-weight: 500;
 }
 
@@ -268,4 +269,30 @@ body {
 
 .button:active {
   box-shadow: none;
+}
+
+@media (max-width: 450px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .inner-container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .arrow {
+    visibility: hidden;
+  }
+
+  .content-container {
+    flex-direction: column;
+  }
+
+  .division {
+    width: 100%;
+    height: .1rem;
+  }
 }
