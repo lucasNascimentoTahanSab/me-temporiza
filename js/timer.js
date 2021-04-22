@@ -21,17 +21,17 @@ export default class Timer {
     return this._isPlaying
   }
 
-  handleTimerExecution(play) {
+  executeTimer(play) {
     if (play) this._playTimer()
     else this._pauseTimer()
   }
 
-  handleTimerSelection(timer) {
+  selectTimer(timer) {
     this._updateInitialTime(timer)
     this._updateCurrentTime()
   }
 
-  handleTimerReload() {
+  reloadTimer() {
     this._pauseTimer()
     this._resetHours()
     this._resetMinutes()
