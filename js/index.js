@@ -102,13 +102,13 @@ function goToLeft() {
 
 function goToBottom() {
   const slideShow = document.getElementById('slide-show')
-  const slideSize = slideShow.firstElementChild.clientWidth
+  const slideSize = slideShow.firstElementChild.clientHeight
   slideShow.scrollTop += slideSize
 }
 
 function goToTop() {
   const slideShow = document.getElementById('slide-show')
-  const slideSize = slideShow.firstElementChild.clientWidth
+  const slideSize = slideShow.firstElementChild.clientHeight
   slideShow.scrollTop -= slideSize
 }
 
