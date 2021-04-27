@@ -23,7 +23,9 @@
 
   <p align="center">
     This is a timer based application aiming to simplify every day tasks, making it easier to organize them by automatically controlling the time spent in each one. The idea here is to expand the project from the stage it is right now, improving its code and style as time goes by, as well as giving it more functionalities, such as subscribe and task management, wich is the prime object of it. 
+    <br />
     Any suggestions for improvements or corrections can be directed to the issues section or to the following email: atendimento@metemporiza.com.br. 
+    <br />
     The application site can be check out in here <a href="https://metemporiza.com.br" target="_blank"><strong>Me Temporiza!</strong></a>   
     <br />
     <a href="https://metemporiza.com.br">View Demo</a>
@@ -69,11 +71,11 @@ This is a timer based application aiming to simplify every day tasks, making it 
 <!-- SCREENSHOTS -->
 ### Screenshots
 
-* [][homepage-url]
-* [][secondpage-url]
-* [][thirdpage-url]
-* [][fourthpage-url]
-* [][lastpage-url]
+* [![Homepage][homepage-url]]
+* [![Second page][secondpage-url]]
+* [![Third page][thirdpage-url]]
+* [![Fourth page][fourthpage-url]]
+* [![Last page][lastpage-url]]
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -111,7 +113,7 @@ Contributions are what make the open source community such an amazing place to b
 <!-- CONTACT -->
 ## Contact
 
-Attendence - [atendimento@metemporiza.com.br](atendimento@metemporiza.com.br)
+Attendence - atendimento@metemporiza.com.br
 
 Project link: [Me Temporiza!](https://github.com/nasciontem/me-temporiza)
 
