@@ -64,9 +64,9 @@ This is a timer based application aiming to simplify every day tasks, making it 
 <!-- BUILT WITH -->
 ### Built With
 
-* [HTML]()
-* [CSS]()
-* [JavaScript]()
+* HTML
+* CSS
+* JavaScript
 
 <!-- SCREENSHOTS -->
 ### Screenshots
