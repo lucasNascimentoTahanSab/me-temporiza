@@ -7,7 +7,7 @@
 ***
 ***
 *** To avoid retyping too much info. Do a search and replace for the following:
-*** nasciontem, me-temporiza, twitter_handle, email, Me Temporiza!, This is a Pomodoro timer based application aiming to simplify every day tasks, making it easier to organize them by automatically controlling the time spent in each one. The idea here is to expand the project from the stage it is right now, improving its code and style as time goes by, as well as giving it more functionalities, such as subscribe and task management, wich is the prime object of it. 
+*** nasciontem, me-temporiza, twitter_handle, email, Me Temporiza!, This is a timer based application aiming to simplify every day tasks, making it easier to organize them by automatically controlling the time spent in each one. The idea here is to expand the project from the stage it is right now, improving its code and style as time goes by, as well as giving it more functionalities, such as subscribe and task management, wich is the prime object of it. 
 Any suggestions for improvements or corrections can be directed to the issues section or to the following email: atendimento@metemporiza.com.br.   
 -->
 
@@ -40,7 +40,7 @@ Any suggestions for improvements or corrections can be directed to the issues se
   <h3 align="center">Me Temporiza!</h3>
 
   <p align="center">
-    This is a Pomodoro timer based application aiming to simplify every day tasks, making it easier to organize them by automatically controlling the time spent in each one. The idea here is to expand the project from the stage it is right now, improving its code and style as time goes by, as well as giving it more functionalities, such as subscribe and task management, wich is the prime object of it. 
+    This is a timer based application aiming to simplify every day tasks, making it easier to organize them by automatically controlling the time spent in each one. The idea here is to expand the project from the stage it is right now, improving its code and style as time goes by, as well as giving it more functionalities, such as subscribe and task management, wich is the prime object of it. 
     Any suggestions for improvements or corrections can be directed to the issues section or to the following email: atendimento@metemporiza.com.br.   
     <br />
     <a href="https://github.com/nasciontem/me-temporiza"><strong>Explore the docs »</strong></a>
@@ -91,7 +91,7 @@ Any suggestions for improvements or corrections can be directed to the issues se
 
 Here's a blank template to get started:
 **To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`nasciontem`, `me-temporiza`, `twitter_handle`, `email`, `Me Temporiza!`, `This is a Pomodoro timer based application aiming to simplify every day tasks, making it easier to organize them by automatically controlling the time spent in each one. The idea here is to expand the project from the stage it is right now, improving its code and style as time goes by, as well as giving it more functionalities, such as subscribe and task management, wich is the prime object of it. 
+`nasciontem`, `me-temporiza`, `twitter_handle`, `email`, `Me Temporiza!`, `This is a timer based application aiming to simplify every day tasks, making it easier to organize them by automatically controlling the time spent in each one. The idea here is to expand the project from the stage it is right now, improving its code and style as time goes by, as well as giving it more functionalities, such as subscribe and task management, wich is the prime object of it. 
 Any suggestions for improvements or corrections can be directed to the issues section or to the following email: atendimento@metemporiza.com.br.   `
 
 
