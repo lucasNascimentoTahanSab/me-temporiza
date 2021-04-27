@@ -41,7 +41,7 @@ Any suggestions for improvements or corrections can be directed to the issues se
 
   <p align="center">
     This is a timer based application aiming to simplify every day tasks, making it easier to organize them by automatically controlling the time spent in each one. The idea here is to expand the project from the stage it is right now, improving its code and style as time goes by, as well as giving it more functionalities, such as subscribe and task management, wich is the prime object of it. 
-    Any suggestions for improvements or corrections can be directed to the issues section or to the following email: atendimento@metemporiza.com.br.   
+    Any suggestions for improvements or corrections can be directed to the issues section or to the following email: atendimento@metemporiza.com.br. The application site can be check out in here <a href="https://metemporiza.com.br"><strong>Me Temporiza!</strong></a>   
     <br />
     <a href="https://github.com/nasciontem/me-temporiza"><strong>Explore the docs »</strong></a>
     <br />
