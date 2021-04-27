@@ -71,11 +71,11 @@ This is a timer based application aiming to simplify every day tasks, making it 
 <!-- SCREENSHOTS -->
 ### Screenshots
 
-* [![Homepage][homepage-url]]
-* [![Second page][secondpage-url]]
-* [![Third page][thirdpage-url]]
-* [![Fourth page][fourthpage-url]]
-* [![Last page][lastpage-url]]
+[Homepage][homepage-url]
+[Second page][secondpage-url]
+[Third page][thirdpage-url]
+[Fourth page][fourthpage-url]
+[Last page][lastpage-url]
 
 <!-- GETTING STARTED -->
 ## Getting Started
