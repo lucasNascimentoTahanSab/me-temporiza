@@ -1,18 +1,3 @@
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Thanks again! Now go create something AMAZING! :D
-***
-***
-***
-*** To avoid retyping too much info. Do a search and replace for the following:
-*** nasciontem, me-temporiza, twitter_handle, email, Me Temporiza!, This is a timer based application aiming to simplify every day tasks, making it easier to organize them by automatically controlling the time spent in each one. The idea here is to expand the project from the stage it is right now, improving its code and style as time goes by, as well as giving it more functionalities, such as subscribe and task management, wich is the prime object of it. 
-Any suggestions for improvements or corrections can be directed to the issues section or to the following email: atendimento@metemporiza.com.br.   
--->
-
-
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -25,36 +10,29 @@ Any suggestions for improvements or corrections can be directed to the issues se
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
-
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
   <a href="https://github.com/nasciontem/me-temporiza">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="src/logo.png" alt="Logo" width="100" height="100">
   </a>
 
   <h3 align="center">Me Temporiza!</h3>
 
   <p align="center">
     This is a timer based application aiming to simplify every day tasks, making it easier to organize them by automatically controlling the time spent in each one. The idea here is to expand the project from the stage it is right now, improving its code and style as time goes by, as well as giving it more functionalities, such as subscribe and task management, wich is the prime object of it. 
-    Any suggestions for improvements or corrections can be directed to the issues section or to the following email: atendimento@metemporiza.com.br. The application site can be check out in here <a href="https://metemporiza.com.br"><strong>Me Temporiza!</strong></a>   
+    Any suggestions for improvements or corrections can be directed to the issues section or to the following email: atendimento@metemporiza.com.br. 
+    The application site can be check out in here <a href="https://metemporiza.com.br" target="_blank"><strong>Me Temporiza!</strong></a>   
     <br />
-    <a href="https://github.com/nasciontem/me-temporiza"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/nasciontem/me-temporiza">View Demo</a>
+    <a href="https://metemporiza.com.br">View Demo</a>
     ·
     <a href="https://github.com/nasciontem/me-temporiza/issues">Report Bug</a>
     ·
     <a href="https://github.com/nasciontem/me-temporiza/issues">Request Feature</a>
   </p>
 </p>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -64,86 +42,60 @@ Any suggestions for improvements or corrections can be directed to the issues se
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
+        <li><a href="#screenshots">Screenshots</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
+    <li><a href="#getting-started">Getting Started</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+This is a timer based application aiming to simplify every day tasks, making it easier to organize them by automatically controlling the time spent in each one. The idea here is to expand the project from the stage it is right now, improving its code and style as time goes by, as well as giving it more functionalities, such as subscribe and task management, wich is the prime object of it.
 
-Here's a blank template to get started:
-**To avoid retyping too much info. Do a search and replace with your text editor for the following:**
-`nasciontem`, `me-temporiza`, `twitter_handle`, `email`, `Me Temporiza!`, `This is a timer based application aiming to simplify every day tasks, making it easier to organize them by automatically controlling the time spent in each one. The idea here is to expand the project from the stage it is right now, improving its code and style as time goes by, as well as giving it more functionalities, such as subscribe and task management, wich is the prime object of it. 
-Any suggestions for improvements or corrections can be directed to the issues section or to the following email: atendimento@metemporiza.com.br.   `
-
-
+<!-- BUILT WITH -->
 ### Built With
 
-* []()
-* []()
-* []()
+* [HTML]()
+* [CSS]()
+* [JavaScript]()
 
+<!-- SCREENSHOTS -->
+### Screenshots
 
+* [][homepage-url]
+* [][secondpage-url]
+* [][thirdpage-url]
+* [][fourthpage-url]
+* [][lastpage-url]
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these simple steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
+To get a local copy up and running you just need to clone the repo using the clone command.
 
 1. Clone the repo
    ```sh
    git clone https://github.com/nasciontem/me-temporiza.git
    ```
-2. Install NPM packages
-   ```sh
-   npm install
-   ```
 
-
+This project has no dependencies until now. As it grows up, the steps in this section will grow too.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
+The application can be used as timer by now, more complex functionalities will be added as soon as I can. 
 
 <!-- ROADMAP -->
 ## Roadmap
 
 See the [open issues](https://github.com/nasciontem/me-temporiza/issues) for a list of proposed features (and known issues).
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -156,46 +108,33 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-
-
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
+Attendence - [atendimento@metemporiza.com.br](atendimento@metemporiza.com.br)
 
-Project Link: [https://github.com/nasciontem/me-temporiza](https://github.com/nasciontem/me-temporiza)
-
-
+Project link: [Me Temporiza!](https://github.com/nasciontem/me-temporiza)
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* []()
-* []()
-* []()
-
-
-
-
+The template used as base for this README file was extracted from [![Best-README-Template]][best-readme-url], go there check it out!
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/nasciontem/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/nasciontem/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/nasciontem/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/nasciontem/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/nasciontem/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/nasciontem/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/nasciontem/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/nasciontem/repo/issues
-[license-shield]: https://img.shields.io/github/license/nasciontem/repo.svg?style=for-the-badge
-[license-url]: https://github.com/nasciontem/repo/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/nasciontem/me-temporiza.svg?style=for-the-badge
+[contributors-url]: https://github.com/nasciontem/me-temporiza/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/nasciontem/me-temporiza.svg?style=for-the-badge
+[forks-url]: https://github.com/nasciontem/me-temporiza/network/members
+[stars-shield]: https://img.shields.io/github/stars/nasciontem/me-temporiza.svg?style=for-the-badge
+[stars-url]: https://github.com/nasciontem/me-temporiza/stargazers
+[issues-shield]: https://img.shields.io/github/issues/nasciontem/me-temporiza.svg?style=for-the-badge
+[issues-url]: https://github.com/nasciontem/me-temporiza/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/nasciontem
+[linkedin-url]: https://www.linkedin.com/in/lucas-nascimento-306465195/
+[best-readme-url]: https://github.com/othneildrew/Best-README-Template
+[homepage-url]: src/homepage.png
+[secondpage-url]: src/secondpage.png
+[thirdpage-url]: src/thirdpage.png
+[fourthpage-url]: src/fourthpage.png
+[lastpage-url]: src/lastpage.png
