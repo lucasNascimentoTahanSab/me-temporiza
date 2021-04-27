@@ -71,11 +71,17 @@ This is a timer based application aiming to simplify every day tasks, making it 
 <!-- SCREENSHOTS -->
 ### Screenshots
 
+Desktop screenshots:
+
 ![Homepage][homepage-url]
 ![Second page][secondpage-url]
 ![Third page][thirdpage-url]
 ![Fourth page][fourthpage-url]
 ![Last page][lastpage-url]
+
+Mobile screenshot:
+
+![Mobile page][mobile-url]
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -113,14 +119,14 @@ Contributions are what make the open source community such an amazing place to b
 <!-- CONTACT -->
 ## Contact
 
-Attendence - atendimento@metemporiza.com.br
+Attendence: atendimento@metemporiza.com.br
 
 Project link: [Me Temporiza!](https://github.com/nasciontem/me-temporiza)
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-The template used as base for this README file was extracted from ![Best-README-Template][best-readme-url], go there check it out!
+The template used as base for this README file was extracted from ![Best-README-Template[]][best-readme-url], go there check it out!
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
@@ -140,3 +146,4 @@ The template used as base for this README file was extracted from ![Best-README-
 [thirdpage-url]: src/thirdpage.png
 [fourthpage-url]: src/fourthpage.png
 [lastpage-url]: src/lastpage.png
+[mobile-url]: src/mobile.png
