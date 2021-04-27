@@ -64,9 +64,9 @@ This is a timer based application aiming to simplify every day tasks, making it 
 <!-- BUILT WITH -->
 ### Built With
 
-* [HTML]()
-* [CSS]()
-* [JavaScript]()
+* HTML
+* CSS
+* JavaScript
 
 <!-- SCREENSHOTS -->
 ### Screenshots
@@ -120,7 +120,7 @@ Project link: [Me Temporiza!](https://github.com/nasciontem/me-temporiza)
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-The template used as base for this README file was extracted from [![Best-README-Template]][best-readme-url], go there check it out!
+The template used as base for this README file was extracted from ![Best-README-Template][best-readme-url], go there check it out!
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
