@@ -54,10 +54,8 @@ function selectTimer(event) {
 function updatePresetTimes() {
   const optionItems = document.querySelectorAll('.timer__options--item')
   optionItems.forEach(option => {
-    if (option.dataset.time === timerFormatted)
-      option.classList.add('selected')
-    else
-      option.classList.remove('selected')
+    if (option.dataset.time === timerFormatted) option.classList.add('selected')
+    else option.classList.remove('selected')
   })
 }
 
@@ -73,7 +71,7 @@ function changeTimerValueOnScreen() {
 }
 
 function changeExecuteImage() {
-  document.getElementById('execute').src = timer.isPlaying ? 'src/pause.png' : 'src/play.png'
+  document.getElementById('execute-button').src = timer.isPlaying ? 'src/pause.png' : 'src/play.png'
 }
 
 function playAlarm() {
