@@ -16,133 +16,130 @@
   <body>
     <main class="container" id="slide-show">
       <div class="inner-container dark-page" id="home-page">
-        <div class="content-container">
-          <span class="arrow left light-border clickable" id="left-last"></span>
-          <section class="timer">
-            <header class="timer-header">
-              <h1 class="timer-header--title">Me Temporiza!</h1>
-              <p>Temporize aqui o tempo que você utiliza em cada atividade!</p>
-            </header>
-            <article class="timer-body">
-              <div class="timer__options">
-                <span class="timer__options--item clickable selected" id="5minutes" data-time="00:05:00">5</span>
-                <span class=" timer__options--item clickable" id="25minutes" data-time="00:25:00">25</span>
-                <span class="timer__options--item clickable" id="50minutes" data-time="00:50:00">50</span>
-              </div>
-              <div class="timer__content">
-                <span class="timer__content--item" id="timer-formatted"></span>
-                <div class="timer__content--item timer__content--buttons">
-                  <button class="timer__content--button-item" id="execute-button">
-                    <img id="execute" src="src/play.png" width="70%">
-                  </button>
-                  <button class="timer__content--button-item" id="reload-button">
-                    <img src="src/reload.png" width="70%">
-                  </button>
+        <div class="inner-container--content">
+          <span class="arrow-left light-border clickable" id="left-last"></span>
+          <section class="inner-container--central-content">
+            <div class="central-content__item">
+              <header>
+                <h1>Me Temporiza!</h1>
+                <p>Temporize aqui o tempo que você utiliza em cada atividade!</p>
+              </header>
+              <div class="timer">
+                <div class="timer__options">
+                  <span class="timer__options--item clickable selected" id="5minutes" data-time="00:05:00">5</span>
+                  <span class=" timer__options--item clickable" id="25minutes" data-time="00:25:00">25</span>
+                  <span class="timer__options--item clickable" id="50minutes" data-time="00:50:00">50</span>
+                </div>
+                <div class="timer__content">
+                  <span class="timer__content--item" id="timer-formatted"></span>
+                  <div class="timer__content--item timer__content--buttons">
+                    <img class="clickable" id="execute-button" src="src/play.png">
+                    <img class="clickable" id="reload-button" src="src/reload.png">
+                  </div>
                 </div>
               </div>
-            </article>
+            </div>
           </section>
-          <span class="arrow right light-border clickable" id="right-second"></span>
+          <span class="arrow-right light-border clickable" id="right-second"></span>
         </div>
       </div>
-
       <div class="inner-container light-page" id="second-page">
-        <div class="content-container">
-          <span class="arrow left dark-border clickable" id="left-home"></span>
-          <section class="title-section">
-            <h2 class="title-section--title">“Tempo é dinheiro”, você já ouviu esta frase?</h2>
+        <div class="inner-container--content">
+          <span class="arrow-left dark-border clickable" id="left-home"></span>
+          <section class="inner-container--central-content">
+            <h2 class="central-content__item">“Tempo é dinheiro”, você já ouviu esta frase?</h2>
+            <div class="division">&nbsp;</div>
+            <div class="central-content__item">
+              <div>
+                <p>Este é um clichê que existe por um bom motivo: ambos são coisas que ninguém quer
+                  perder.
+                </p>
+                <p class="content-highlight">Especialmente o tempo!</p>
+              </div>
+              <div>
+                <p>
+                  E nós sabemos que em uma rotina intensa e cheia de compromissos
+                  é importante achar meios de gerenciá-lo e usá-lo da melhor maneira.
+                </p>
+              </div>
+            </div>
           </section>
-          <div class="division">&nbsp;</div>
-          <article class="content-section">
-            <div class="content-section--content">
-              <p>
-                Este é um clichê que existe por um bom motivo: ambos são coisas que ninguém quer perder.
-              </p>
-              <p class="content-highlight">
-                Especialmente o tempo!
-              </p>
-            </div>
-            <div class="content-section--content">
-              <p>
-                E nós sabemos que em uma rotina intensa e cheia de compromissos
-                é importante achar meios de gerenciá-lo e usá-lo da melhor maneira.
-              </p>
-            </div>
-          </article>
-          <span class="arrow right dark-border clickable" id="right-third"></span>
+          <span class="arrow-right dark-border clickable" id="right-third"></span>
         </div>
       </div>
-
       <div class="inner-container light-page" id="third-page">
-        <div class="content-container">
-          <span class="arrow left dark-border clickable" id="left-second"></span>
-          <section class="title-section">
-            <h2 class="title-section--title">Quer saber como você pode fazer isso?</h2>
+        <div class="inner-container--content">
+          <span class="arrow-left dark-border clickable" id="left-second"></span>
+          <section class="inner-container--central-content">
+            <h2 class="central-content__item">Quer saber como você pode fazer isso?</h2>
+            <div class="division">&nbsp;</div>
+            <div class="central-content__item">
+              <p>
+                Usando o <span class="content-highlight">Me Temporiza</span> para gerenciar o seu tempo
+                e ter mais
+                produtividade em cada demanda da sua rotina! Assim, você consegue:
+              </p>
+              <ul class="content-topics">
+                <li class="content-topics__item">
+                  Dividir suas atividades em <span class="content-highlight">etapas e ciclos</span>;
+                </li>
+                <li class="content-topics__item">
+                  Ter <span class="content-highlight">eficiência</span> na realização das suas
+                  tarefas;
+                </li>
+                <li class="content-topics__item">
+                  <span class="content-highlight">Evitar distrações</span> e saber o que cada prática
+                  exige de você;
+                </li>
+                <li class="content-topics__item">
+                  E ainda pode <span class="content-highlight">se recompensar</span> pelos seus
+                  avanços!
+                </li>
+              </ul>
+            </div>
           </section>
-          <div class="division">&nbsp;</div>
-          <article class="content-section">
-            <p>
-              Usando o <span class="content-highlight">Me Temporiza</span> para gerenciar o seu tempo e ter mais
-              produtividade em cada demanda da sua rotina! Assim, você consegue:
-            </p>
-            <ul class="content-topics">
-              <li class="content-topics__item">
-                Dividir suas atividades em <span class="content-highlight">etapas e ciclos</span>;
-              </li>
-              <li class="content-topics__item">
-                Ter <span class="content-highlight">eficiência</span> na realização das suas tarefas;
-              </li>
-              <li class="content-topics__item">
-                <span class="content-highlight">Evitar distrações</span> e saber o que cada prática exige de você;
-              </li>
-              <li class="content-topics__item">
-                E ainda pode <span class="content-highlight">se recompensar</span> pelos seus avanços!
-              </li>
-            </ul>
-          </article>
-          <span class="arrow right dark-border clickable" id="right-fourth"></span>
+          <span class="arrow-right dark-border clickable" id="right-fourth"></span>
         </div>
       </div>
-
       <div class="inner-container light-page" id="fourth-page">
-        <div class="content-container">
-          <span class="arrow left dark-border clickable" id="left-third"></span>
-          <section class="title-section">
-            <h2 class="title-section--title">
-              <p>Cronometre, execute e descanse!</p>
-              <p>E aí, já deu o play no Me Temporiza?</p>
+        <div class="inner-container--content">
+          <span class="arrow-left dark-border clickable" id="left-third"></span>
+          <section class="inner-container--central-content">
+            <h2 class="central-content__item">
+              <div>
+                <p>Cronometre, execute e descanse!</p>
+                <p>E aí, já deu o play no Me Temporiza?</p>
+              </div>
             </h2>
           </section>
-          <span class="arrow right dark-border clickable" id="right-last"></span>
+          <span class="arrow-right dark-border clickable" id="right-last"></span>
         </div>
       </div>
-
       <div class="inner-container dark-page" id="last-page">
-        <div class="content-container">
-          <span class="arrow left light-border clickable" id="left-fourth"></span>
-          <section class="title-section">
-            <h2 class="title-section--title">Curtiu a ideia?</h2>
+        <div class="inner-container--content">
+          <span class="arrow-left light-border clickable" id="left-fourth"></span>
+          <section class="inner-container--central-content">
+            <h2 class="central-content__item">Curtiu a ideia?</h2>
+            <div class="division">&nbsp;</div>
+            <div class="central-content__item">
+              <form class="central-content__item centralize">
+                <p>Manda suas sugestões e comentários para a gente, vamos adorar ler!</p>
+                <div class="form-element">
+                  <label for="message-title">Título:</label>
+                  <input class="text-input" id="message-title"></input>
+                </div>
+                <div class="form-element">
+                  <label for="message-body">Sua mensagem vem aqui:</label>
+                  <textarea class="text-input large" id="message-body"></textarea>
+                </div>
+                <button class="form-button" id="submit-message">Enviar</button>
+              </form>
+            </div>
           </section>
-          <div class="division">&nbsp;</div>
-          <article class="content-section">
-            <form class="content-section">
-              <p>Manda suas sugestões e comentários para a gente, vamos adorar ler!</p>
-              <div class="form-element">
-                <label for="message-title">Título:</label>
-                <input class="text-input" id="message-title"></input>
-              </div>
-              <div class="form-element">
-                <label for="message-body">Sua mensagem vem aqui:</label>
-                <textarea class="text-input large" id="message-body"></textarea>
-              </div>
-              <button class="button content-highlight clickable" id="submit-message">Enviar</button>
-            </form>
-          </article>
-          <span class="arrow right light-border clickable" id="right-home"></span>
+          <span class="arrow-right light-border clickable" id="right-home"></span>
         </div>
       </div>
-
-      <div class="pseudo-slide dark-page">&nbsp;</div>
+      <div>&nbsp;</div>
     </main>
     <audio id="alarm" src="src/alarm.mp3"></audio>
   </body>
