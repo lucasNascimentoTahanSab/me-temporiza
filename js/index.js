@@ -11,8 +11,8 @@ window.addEventListener('load', () => {
   document.getElementById('5minutes').addEventListener('click', event => handlePresetTimeSelection(event))
   document.getElementById('25minutes').addEventListener('click', event => handlePresetTimeSelection(event))
   document.getElementById('50minutes').addEventListener('click', event => handlePresetTimeSelection(event))
-  document.getElementById('execute-button').addEventListener('click', () => executeTimer())
-  document.getElementById('reload-button').addEventListener('click', () => reloadTimer())
+  document.getElementById('execute').addEventListener('click', () => executeTimer())
+  document.getElementById('reload').addEventListener('click', () => reloadTimer())
   document.getElementById('left-last').addEventListener('click', () => goToLast())
   document.getElementById('right-second').addEventListener('click', () => goToNext())
   document.getElementById('left-home').addEventListener('click', () => goToLast())
@@ -44,6 +44,7 @@ function startTimer() {
       changeTimerValueOnScreen()
       if (timerController.timeIsOver()) {
         timerController.reloadTimer()
+        // changeTimerValueOnScreen()
         playAlarm()
       }
     }
@@ -51,7 +52,10 @@ function startTimer() {
 }
 
 function executeTimer() {
-  if (timerController.isPlaying) timerController.executeTimer(false)
+  if (timerController.isPlaying) {
+    timerController.executeTimer(false)
+    // stopAlarm()
+  }
   else timerController.executeTimer(true)
   changeExecuteImage()
 }
@@ -97,6 +101,7 @@ function reloadTimer() {
   timerController.reloadTimer()
   changeTimerValueOnScreen()
   changeExecuteImage()
+  // stopAlarm()
 }
 
 function selectTimer(hours, minutes, seconds) {
@@ -114,12 +119,20 @@ function changeTimerValueOnScreen() {
 }
 
 function changeExecuteImage() {
-  document.getElementById('execute-button').src = timerController.isPlaying ? 'src/pause.png' : 'src/play.png'
+  document.getElementById('execute').src = timerController.isPlaying ? 'src/pause.png' : 'src/play.png'
 }
 
 function playAlarm() {
-  document.getElementById('alarm').play()
+  const alarm = document.getElementById('alarm')
+  alarm.currentTime = 0
+  alarm.play()
 }
+
+// function stopAlarm() {
+//   const alarm = document.getElementById('alarm')
+//   alarm.pause()
+//   alarm.currentTime = 0
+// }
 
 function goToNext() {
   const slideShow = document.getElementById('slide-show')
