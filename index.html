@@ -8,6 +8,7 @@
     <link rel="icon" href="src/logo.png">
     <link rel="stylesheet" href="style/style.css">
     <script type="module" src="js/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QYXGSGEKF0"></script>
     <script src="js/analytics.js"></script>
     <title>Me Temporiza!</title>
@@ -31,8 +32,14 @@
                   <span class="timer__options--item clickable" id="50minutes" data-time="00:50:00">50</span>
                 </div>
                 <div class="timer__content">
-                  <span class="timer__content--item" id="timer-formatted"></span>
-                  <div class="timer__content--item timer__content--buttons">
+                  <div class="timer__content--item">
+                    <input class="text-input timer-input " maxlength="2" value="00" id="hours"></input>
+                    <span style="margin-inline: .01rem;">:</span>
+                    <input class="text-input timer-input " maxlength="2" value="00" id="minutes"></input>
+                    <span style="margin-inline: .01rem;">:</span>
+                    <input class="text-input timer-input " maxlength="2" value="00" id="seconds"></input>
+                  </div>
+                  <div class="timer__content--item">
                     <img class="clickable" id="execute-button" src="src/play.png">
                     <img class="clickable" id="reload-button" src="src/reload.png">
                   </div>

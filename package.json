@@ -1,0 +1,23 @@
+{
+  "name": "me-temporiza",
+  "version": "1.0.0",
+  "description": "This is a timer based application aiming to simplify every day tasks, making it easier to organize them by automatically controlling the time spent in each one.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nasciontem/me-temporiza.git"
+  },
+  "keywords": [
+    "Me",
+    "Temporiza!"
+  ],
+  "author": "Lucas Nascimento Tahan Sab",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nasciontem/me-temporiza/issues"
+  },
+  "homepage": "https://github.com/nasciontem/me-temporiza#readme"
+}
