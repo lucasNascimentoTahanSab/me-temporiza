@@ -67,6 +67,7 @@ This is a timer based application aiming to simplify every day tasks, making it 
 * HTML
 * CSS
 * JavaScript
+* jQuery
 
 <!-- SCREENSHOTS -->
 ### Screenshots
