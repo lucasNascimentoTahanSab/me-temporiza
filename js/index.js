@@ -1,16 +1,16 @@
-import Timer from './timer.js'
+import TimerController from './timerController.js'
 
 let timerFormatted
 const oneSecond = 1000
-const timer = new Timer()
+const timerController = new TimerController()
 const slides = []
 window.addEventListener('load', () => {
   defineSlides()
-  defineCurrentSlide(0)
+  defineCurrentSlide()
   changeTimerValueOnScreen()
-  document.getElementById('5minutes').addEventListener('click', event => selectTimer(event))
-  document.getElementById('25minutes').addEventListener('click', event => selectTimer(event))
-  document.getElementById('50minutes').addEventListener('click', event => selectTimer(event))
+  document.getElementById('5minutes').addEventListener('click', event => handlePresetTimeSelection(event))
+  document.getElementById('25minutes').addEventListener('click', event => handlePresetTimeSelection(event))
+  document.getElementById('50minutes').addEventListener('click', event => handlePresetTimeSelection(event))
   document.getElementById('execute-button').addEventListener('click', () => executeTimer())
   document.getElementById('reload-button').addEventListener('click', () => reloadTimer())
   document.getElementById('left-last').addEventListener('click', () => goToLast())
@@ -24,6 +24,12 @@ window.addEventListener('load', () => {
   document.getElementById('left-fourth').addEventListener('click', () => goToLast())
   document.getElementById('right-home').addEventListener('click', () => goToNext())
   document.getElementById('submit-message').addEventListener('click', event => submitMessage(event))
+  $('#hours').keypress(event => handleCustomTimeSelection(event));
+  $('#minutes').keypress(event => handleCustomTimeSelection(event));
+  $('#seconds').keypress(event => handleCustomTimeSelection(event));
+  $('#hours').keydown(event => handleBackspacePressed(event));
+  $('#minutes').keydown(event => handleBackspacePressed(event));
+  $('#seconds').keydown(event => handleBackspacePressed(event));
   startTimer()
 })
 
@@ -33,11 +39,11 @@ window.addEventListener('resize', () => {
 
 function startTimer() {
   setInterval(() => {
-    if (timer.isPlaying) {
-      timer.decreaseTimer()
+    if (timerController.isPlaying) {
+      timerController.decreaseTimer()
       changeTimerValueOnScreen()
-      if (timer.timeIsOver()) {
-        timer.reloadTimer()
+      if (timerController.timeIsOver()) {
+        timerController.reloadTimer()
         playAlarm()
       }
     }
@@ -45,17 +51,38 @@ function startTimer() {
 }
 
 function executeTimer() {
-  if (timer.isPlaying) timer.executeTimer(false)
-  else timer.executeTimer(true)
+  if (timerController.isPlaying) timerController.executeTimer(false)
+  else timerController.executeTimer(true)
   changeExecuteImage()
 }
 
-function selectTimer(event) {
-  timer.selectTimer(event.target.dataset.time)
-
+function handlePresetTimeSelection(event) {
+  const timerSplitted = event.target.dataset.time.split(':')
+  selectTimer(timerSplitted[0], timerSplitted[1], timerSplitted[2])
   changeTimerValueOnScreen()
-  updatePresetTimes()
   reloadTimer()
+}
+
+function handleCustomTimeSelection(event) {
+  if (event.key < '0' || event.key > '9') return false
+
+  const characters = event.target.value.split('')
+  event.target.value = characters[1] + event.key
+  selectTimer(document.getElementById('hours').value, document.getElementById('minutes').value, document.getElementById('seconds').value)
+}
+
+/**
+ * Method responsible for handling backspacing
+ * in custom time editing. "event.preventDefault()" 
+ * is needed here to avoid unexpected behavior.
+ */
+function handleBackspacePressed(event) {
+  if (event.keyCode === 8) {
+    event.preventDefault()
+    const characters = event.target.value.split('')
+    event.target.value = characters[0] === '0' ? '00' : '0' + characters[1]
+    selectTimer(document.getElementById('hours').value, document.getElementById('minutes').value, document.getElementById('seconds').value)
+  }
 }
 
 function updatePresetTimes() {
@@ -67,18 +94,27 @@ function updatePresetTimes() {
 }
 
 function reloadTimer() {
-  timer.reloadTimer()
+  timerController.reloadTimer()
   changeTimerValueOnScreen()
   changeExecuteImage()
 }
 
+function selectTimer(hours, minutes, seconds) {
+  timerController.selectTimer(hours, minutes, seconds)
+  timerFormatted = timerController.getTimeFormatted()
+  updatePresetTimes()
+}
+
 function changeTimerValueOnScreen() {
-  timerFormatted = timer.getTimeFormatted()
-  document.getElementById('timer-formatted').innerHTML = timerFormatted
+  timerFormatted = timerController.getTimeFormatted()
+  const timerSplitted = timerFormatted.split(':')
+  document.getElementById('hours').value = timerSplitted[0]
+  document.getElementById('minutes').value = timerSplitted[1]
+  document.getElementById('seconds').value = timerSplitted[2]
 }
 
 function changeExecuteImage() {
-  document.getElementById('execute-button').src = timer.isPlaying ? 'src/pause.png' : 'src/play.png'
+  document.getElementById('execute-button').src = timerController.isPlaying ? 'src/pause.png' : 'src/play.png'
 }
 
 function playAlarm() {
@@ -131,7 +167,7 @@ function updateSlides() {
   })
 }
 
-function defineCurrentSlide(scrollLeft) {
+function defineCurrentSlide(scrollLeft = 0) {
   for (const slide of slides) {
     if (slide.position !== scrollLeft) {
       slide.current = false
