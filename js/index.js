@@ -1,9 +1,12 @@
 import Timer from './timer.js'
 
+let timerFormatted
 const oneSecond = 1000
 const timer = new Timer()
-let timerFormatted
+const slides = []
 window.addEventListener('load', () => {
+  defineSlides()
+  defineCurrentSlide(0)
   changeTimerValueOnScreen()
   document.getElementById('5minutes').addEventListener('click', event => selectTimer(event))
   document.getElementById('25minutes').addEventListener('click', event => selectTimer(event))
@@ -11,17 +14,21 @@ window.addEventListener('load', () => {
   document.getElementById('execute-button').addEventListener('click', () => executeTimer())
   document.getElementById('reload-button').addEventListener('click', () => reloadTimer())
   document.getElementById('left-last').addEventListener('click', () => goToLast())
-  document.getElementById('right-second').addEventListener('click', () => goToRight())
-  document.getElementById('left-home').addEventListener('click', () => goToLeft())
-  document.getElementById('right-third').addEventListener('click', () => goToRight())
-  document.getElementById('left-second').addEventListener('click', () => goToLeft())
-  document.getElementById('right-fourth').addEventListener('click', () => goToRight())
-  document.getElementById('left-third').addEventListener('click', () => goToLeft())
-  document.getElementById('right-last').addEventListener('click', () => goToRight())
-  document.getElementById('left-fourth').addEventListener('click', () => goToLeft())
-  document.getElementById('right-home').addEventListener('click', () => goToHome())
+  document.getElementById('right-second').addEventListener('click', () => goToNext())
+  document.getElementById('left-home').addEventListener('click', () => goToLast())
+  document.getElementById('right-third').addEventListener('click', () => goToNext())
+  document.getElementById('left-second').addEventListener('click', () => goToLast())
+  document.getElementById('right-fourth').addEventListener('click', () => goToNext())
+  document.getElementById('left-third').addEventListener('click', () => goToLast())
+  document.getElementById('right-last').addEventListener('click', () => goToNext())
+  document.getElementById('left-fourth').addEventListener('click', () => goToLast())
+  document.getElementById('right-home').addEventListener('click', () => goToNext())
   document.getElementById('submit-message').addEventListener('click', event => submitMessage(event))
   startTimer()
+})
+
+window.addEventListener('resize', () => {
+  manageWindowResize()
 })
 
 function startTimer() {
@@ -78,26 +85,67 @@ function playAlarm() {
   document.getElementById('alarm').play()
 }
 
-function goToRight() {
+function goToNext() {
   const slideShow = document.getElementById('slide-show')
-  const slideSize = slideShow.firstElementChild.clientWidth + (2 * slideShow.firstElementChild.offsetLeft)
-  slideShow.scrollLeft += slideSize
-}
-
-function goToLeft() {
-  const slideShow = document.getElementById('slide-show')
-  const slideSize = slideShow.firstElementChild.clientWidth + (2 * slideShow.firstElementChild.offsetLeft)
-  slideShow.scrollLeft -= slideSize
-}
-
-function goToHome() {
-  const slideShow = document.getElementById('slide-show')
-  slideShow.scrollLeft -= slideShow.scrollWidth
+  const currentSlidePosition = getCurrentSlidePosition()
+  const nextSlidePosition = currentSlidePosition < (slides.length - 1) ? currentSlidePosition + 1 : 0
+  slideShow.scrollLeft = slides[nextSlidePosition].position
+  defineCurrentSlide(slides[nextSlidePosition].position)
 }
 
 function goToLast() {
   const slideShow = document.getElementById('slide-show')
-  slideShow.scrollLeft += slideShow.scrollWidth
+  const currentSlidePosition = getCurrentSlidePosition()
+  const lastSlidePosition = currentSlidePosition > 0 ? currentSlidePosition - 1 : (slides.length - 1)
+  slideShow.scrollLeft = slides[lastSlidePosition].position
+  defineCurrentSlide(slides[lastSlidePosition].position)
+}
+
+function manageWindowResize() {
+  updateSlides()
+  const slideShow = document.getElementById('slide-show')
+  slideShow.scrollLeft = slides[getCurrentSlidePosition()].position
+}
+
+function defineSlides() {
+  const slideShow = Array.from(document.getElementsByClassName('inner-container'))
+  const slideSize = slideShow[0].clientWidth + (2 * slideShow[0].offsetLeft)
+  slideShow.forEach((slide, position) => {
+    slides.push({
+      position: slideSize * position,
+      width: slideSize,
+      current: false
+    })
+  })
+}
+
+function updateSlides() {
+  const slideShow = document.getElementsByClassName('inner-container')
+  const slideSize = slideShow[0].clientWidth + (2 * slideShow[0].offsetLeft)
+  slides.forEach((slide, position) => {
+    slides[position] = {
+      ...slides[position],
+      position: slideSize * position,
+      width: slideSize
+    }
+  })
+}
+
+function defineCurrentSlide(scrollLeft) {
+  for (const slide of slides) {
+    if (slide.position !== scrollLeft) {
+      slide.current = false
+    } else {
+      slide.current = true
+      break
+    }
+  }
+}
+
+function getCurrentSlidePosition() {
+  for (let position = 0; position < slides.length; position++)
+    if (slides[position].current)
+      return position
 }
 
 function submitMessage(event) {
