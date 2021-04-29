@@ -4,17 +4,6 @@ const mobileEnvironments = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|O
 const desktop = 'js/desktop.js'
 const mobile = 'js/mobile.js'
 
-/**
- * Constant responsible for checking if
- * hours, minutes and seconds selected are
- * valid as input, returning true if they are.
- */
-const maxValidTimeInput = {
-  hours: 23,
-  minutes: 59,
-  seconds: 59
-}
-
 const timerController = new TimerController()
 const oneSecond = 1000
 let timerFormatted
@@ -89,9 +78,9 @@ function reloadTimer() {
 }
 
 function selectTimer(hours, minutes, seconds) {
-  hours = hours > maxValidTimeInput.hours ? maxValidTimeInput.hours : hours
-  minutes = minutes > maxValidTimeInput.minutes ? maxValidTimeInput.minutes : minutes
-  seconds = seconds > maxValidTimeInput.seconds ? maxValidTimeInput.seconds : seconds
+  hours = hours > 23 ? 23 : hours
+  minutes = minutes > 59 ? 59 : minutes
+  seconds = seconds > 59 ? 59 : seconds
   timerController.selectTimer(hours, minutes, seconds)
   timerFormatted = timerController.getTimeFormatted()
   updatePresetTimes()
@@ -125,6 +114,4 @@ function submitMessage(event) {
   event.preventDefault()
 }
 
-export {
-  selectTimer
-}
+export { selectTimer }
