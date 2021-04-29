@@ -240,6 +240,7 @@ img {
 }
 
 .timer-input {
+  text-align: center;
   width: calc(var(--font-size-text-timer) * 2);
   caret-color: var(--color-background-dark);
   color: var(--color-background-dark);
@@ -270,15 +271,7 @@ img {
   box-shadow: none;
 }
 
-.hide-mobile {
-  display: block;
-}
-
-.hide-desktop {
-  display: none;
-}
-
-@media (max-width: 40em) {
+@media (max-width: 52.5rem) {
   :root {
     --font-size-title: 2rem;
     --font-size-text-timer: 1.3rem;
@@ -304,7 +297,7 @@ img {
 
   .timer {
     margin: 2rem;
-    width: 10rem;
+    width: 11rem;
   }
 
   .timer__options {
@@ -342,18 +335,5 @@ img {
 
   .pseudo-slide {
     display: none;
-  }
-
-  .timer-input {
-    width: 100%;
-    text-align: center;
-  }
-
-  .hide-mobile {
-    display: none;
-  }
-
-  .hide-desktop {
-    display: block;
   }
 }

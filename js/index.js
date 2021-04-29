@@ -1,16 +1,17 @@
 import TimerController from './timerController.js'
 
-let timerFormatted
-const oneSecond = 1000
+const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
 const timerController = new TimerController()
+const oneSecond = 1000
+let timerFormatted
 const slides = []
 window.addEventListener('load', () => {
   defineSlides()
   defineCurrentSlide()
   changeTimerValueOnScreen()
-  document.getElementById('5minutes').addEventListener('click', event => handlePresetTimeSelection(event))
-  document.getElementById('25minutes').addEventListener('click', event => handlePresetTimeSelection(event))
-  document.getElementById('50minutes').addEventListener('click', event => handlePresetTimeSelection(event))
+  document.getElementById('5minutes').addEventListener('click', handlePresetTimeSelection)
+  document.getElementById('25minutes').addEventListener('click', handlePresetTimeSelection)
+  document.getElementById('50minutes').addEventListener('click', handlePresetTimeSelection)
   document.getElementById('execute').addEventListener('click', () => executeTimer())
   document.getElementById('reload').addEventListener('click', () => reloadTimer())
   document.getElementById('left-last').addEventListener('click', () => goToLast())
@@ -23,19 +24,36 @@ window.addEventListener('load', () => {
   document.getElementById('right-last').addEventListener('click', () => goToNext())
   document.getElementById('left-fourth').addEventListener('click', () => goToLast())
   document.getElementById('right-home').addEventListener('click', () => goToNext())
-  document.getElementById('submit-message').addEventListener('click', event => submitMessage(event))
-  $('#hours').keypress(event => handleCustomTimeSelection(event));
-  $('#minutes').keypress(event => handleCustomTimeSelection(event));
-  $('#seconds').keypress(event => handleCustomTimeSelection(event));
-  $('#hours').keydown(event => handleBackspacePressed(event));
-  $('#minutes').keydown(event => handleBackspacePressed(event));
-  $('#seconds').keydown(event => handleBackspacePressed(event));
+  document.getElementById('submit-message').addEventListener('click', submitMessage)
+  if (!mobile.test(navigator.userAgent)) setDesktopEvents()
+  else setMobileEvents()
   startTimer()
 })
 
 window.addEventListener('resize', () => {
   manageWindowResize()
 })
+
+function setDesktopEvents() {
+  $('#hours').keypress(handleCustomTimeSelection)
+  $('#minutes').keypress(handleCustomTimeSelection)
+  $('#seconds').keypress(handleCustomTimeSelection)
+  $('#hours').keydown(handleBackspacePressed)
+  $('#minutes').keydown(handleBackspacePressed)
+  $('#seconds').keydown(handleBackspacePressed)
+}
+
+/**
+ * Method responsible for defining mobile events
+ * only. Some events such as keyboard events does
+ * not work properly on mobile devices, so the following
+ * are meant to be a workaround to problems like that. 
+ */
+function setMobileEvents() {
+  $('#hours').change(handleCustomTimeSelectionOnMobile)
+  $('#minutes').change(handleCustomTimeSelectionOnMobile)
+  $('#seconds').change(handleCustomTimeSelectionOnMobile)
+}
 
 function startTimer() {
   setInterval(() => {
@@ -73,6 +91,10 @@ function handleCustomTimeSelection(event) {
   const characters = event.target.value.split('')
   event.target.value = characters[1] + event.key
   selectTimer(document.getElementById('hours').value, document.getElementById('minutes').value, document.getElementById('seconds').value)
+}
+
+function handleCustomTimeSelectionOnMobile() {
+
 }
 
 /**
@@ -151,6 +173,8 @@ function goToLast() {
 }
 
 function manageWindowResize() {
+  if (window.matchMedia('(max-width: 52.5rem)').matches) return false
+
   updateSlides()
   const slideShow = document.getElementById('slide-show')
   slideShow.scrollLeft = slides[getCurrentSlidePosition()].position
@@ -198,5 +222,5 @@ function getCurrentSlidePosition() {
 }
 
 function submitMessage(event) {
-  event.preventDefault();
+  event.preventDefault()
 }
