@@ -1,41 +1,47 @@
 import TimerController from './timerController.js'
 
-let timerFormatted
-const oneSecond = 1000
+const mobileEnvironments = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+const desktop = 'js/desktop.js'
+const mobile = 'js/mobile.js'
+
+/**
+ * Constant responsible for checking if
+ * hours, minutes and seconds selected are
+ * valid as input, returning true if they are.
+ */
+const maxValidTimeInput = {
+  hours: 23,
+  minutes: 59,
+  seconds: 59
+}
+
 const timerController = new TimerController()
-const slides = []
+const oneSecond = 1000
+let timerFormatted
+
 window.addEventListener('load', () => {
-  defineSlides()
-  defineCurrentSlide()
-  changeTimerValueOnScreen()
-  document.getElementById('5minutes').addEventListener('click', event => handlePresetTimeSelection(event))
-  document.getElementById('25minutes').addEventListener('click', event => handlePresetTimeSelection(event))
-  document.getElementById('50minutes').addEventListener('click', event => handlePresetTimeSelection(event))
-  document.getElementById('execute-button').addEventListener('click', () => executeTimer())
-  document.getElementById('reload-button').addEventListener('click', () => reloadTimer())
-  document.getElementById('left-last').addEventListener('click', () => goToLast())
-  document.getElementById('right-second').addEventListener('click', () => goToNext())
-  document.getElementById('left-home').addEventListener('click', () => goToLast())
-  document.getElementById('right-third').addEventListener('click', () => goToNext())
-  document.getElementById('left-second').addEventListener('click', () => goToLast())
-  document.getElementById('right-fourth').addEventListener('click', () => goToNext())
-  document.getElementById('left-third').addEventListener('click', () => goToLast())
-  document.getElementById('right-last').addEventListener('click', () => goToNext())
-  document.getElementById('left-fourth').addEventListener('click', () => goToLast())
-  document.getElementById('right-home').addEventListener('click', () => goToNext())
-  document.getElementById('submit-message').addEventListener('click', event => submitMessage(event))
-  $('#hours').keypress(event => handleCustomTimeSelection(event));
-  $('#minutes').keypress(event => handleCustomTimeSelection(event));
-  $('#seconds').keypress(event => handleCustomTimeSelection(event));
-  $('#hours').keydown(event => handleBackspacePressed(event));
-  $('#minutes').keydown(event => handleBackspacePressed(event));
-  $('#seconds').keydown(event => handleBackspacePressed(event));
   startTimer()
+  changeTimerValueOnScreen()
+  document.getElementById('5minutes').addEventListener('click', handlePresetTimeSelection)
+  document.getElementById('25minutes').addEventListener('click', handlePresetTimeSelection)
+  document.getElementById('50minutes').addEventListener('click', handlePresetTimeSelection)
+  document.getElementById('execute').addEventListener('click', () => executeTimer())
+  document.getElementById('reload').addEventListener('click', () => reloadTimer())
+  document.getElementById('submit-message').addEventListener('click', submitMessage)
+  document.getElementById('hours').addEventListener('keydown', () => { if (timerController.isPlaying) executeTimer() })
+  document.getElementById('minutes').addEventListener('keydown', () => { if (timerController.isPlaying) executeTimer() })
+  document.getElementById('seconds').addEventListener('keydown', () => { if (timerController.isPlaying) executeTimer() })
+  if (mobileEnvironments.test(navigator.userAgent)) setUpEnvironmentWithModule(mobile)
+  else setUpEnvironmentWithModule(desktop)
 })
 
-window.addEventListener('resize', () => {
-  manageWindowResize()
-})
+function setUpEnvironmentWithModule(module) {
+  const head = document.querySelector('head');
+  const script = document.createElement('script');
+  script.type = 'module';
+  script.src = module;
+  head.appendChild(script)
+}
 
 function startTimer() {
   setInterval(() => {
@@ -44,6 +50,7 @@ function startTimer() {
       changeTimerValueOnScreen()
       if (timerController.timeIsOver()) {
         timerController.reloadTimer()
+        // changeTimerValueOnScreen()
         playAlarm()
       }
     }
@@ -51,7 +58,10 @@ function startTimer() {
 }
 
 function executeTimer() {
-  if (timerController.isPlaying) timerController.executeTimer(false)
+  if (timerController.isPlaying) {
+    timerController.executeTimer(false)
+    // stopAlarm()
+  }
   else timerController.executeTimer(true)
   changeExecuteImage()
 }
@@ -61,28 +71,6 @@ function handlePresetTimeSelection(event) {
   selectTimer(timerSplitted[0], timerSplitted[1], timerSplitted[2])
   changeTimerValueOnScreen()
   reloadTimer()
-}
-
-function handleCustomTimeSelection(event) {
-  if (event.key < '0' || event.key > '9') return false
-
-  const characters = event.target.value.split('')
-  event.target.value = characters[1] + event.key
-  selectTimer(document.getElementById('hours').value, document.getElementById('minutes').value, document.getElementById('seconds').value)
-}
-
-/**
- * Method responsible for handling backspacing
- * in custom time editing. "event.preventDefault()" 
- * is needed here to avoid unexpected behavior.
- */
-function handleBackspacePressed(event) {
-  if (event.keyCode === 8) {
-    event.preventDefault()
-    const characters = event.target.value.split('')
-    event.target.value = characters[0] === '0' ? '00' : '0' + characters[1]
-    selectTimer(document.getElementById('hours').value, document.getElementById('minutes').value, document.getElementById('seconds').value)
-  }
 }
 
 function updatePresetTimes() {
@@ -97,9 +85,13 @@ function reloadTimer() {
   timerController.reloadTimer()
   changeTimerValueOnScreen()
   changeExecuteImage()
+  // stopAlarm()
 }
 
 function selectTimer(hours, minutes, seconds) {
+  hours = hours > maxValidTimeInput.hours ? maxValidTimeInput.hours : hours
+  minutes = minutes > maxValidTimeInput.minutes ? maxValidTimeInput.minutes : minutes
+  seconds = seconds > maxValidTimeInput.seconds ? maxValidTimeInput.seconds : seconds
   timerController.selectTimer(hours, minutes, seconds)
   timerFormatted = timerController.getTimeFormatted()
   updatePresetTimes()
@@ -114,76 +106,25 @@ function changeTimerValueOnScreen() {
 }
 
 function changeExecuteImage() {
-  document.getElementById('execute-button').src = timerController.isPlaying ? 'src/pause.png' : 'src/play.png'
+  document.getElementById('execute').src = timerController.isPlaying ? 'src/pause.png' : 'src/play.png'
 }
 
 function playAlarm() {
-  document.getElementById('alarm').play()
+  const alarm = document.getElementById('alarm')
+  alarm.currentTime = 0
+  alarm.play()
 }
 
-function goToNext() {
-  const slideShow = document.getElementById('slide-show')
-  const currentSlidePosition = getCurrentSlidePosition()
-  const nextSlidePosition = currentSlidePosition < (slides.length - 1) ? currentSlidePosition + 1 : 0
-  slideShow.scrollLeft = slides[nextSlidePosition].position
-  defineCurrentSlide(slides[nextSlidePosition].position)
-}
-
-function goToLast() {
-  const slideShow = document.getElementById('slide-show')
-  const currentSlidePosition = getCurrentSlidePosition()
-  const lastSlidePosition = currentSlidePosition > 0 ? currentSlidePosition - 1 : (slides.length - 1)
-  slideShow.scrollLeft = slides[lastSlidePosition].position
-  defineCurrentSlide(slides[lastSlidePosition].position)
-}
-
-function manageWindowResize() {
-  updateSlides()
-  const slideShow = document.getElementById('slide-show')
-  slideShow.scrollLeft = slides[getCurrentSlidePosition()].position
-}
-
-function defineSlides() {
-  const slideShow = Array.from(document.getElementsByClassName('inner-container'))
-  const slideSize = slideShow[0].clientWidth + (2 * slideShow[0].offsetLeft)
-  slideShow.forEach((slide, position) => {
-    slides.push({
-      position: slideSize * position,
-      width: slideSize,
-      current: false
-    })
-  })
-}
-
-function updateSlides() {
-  const slideShow = document.getElementsByClassName('inner-container')
-  const slideSize = slideShow[0].clientWidth + (2 * slideShow[0].offsetLeft)
-  slides.forEach((slide, position) => {
-    slides[position] = {
-      ...slides[position],
-      position: slideSize * position,
-      width: slideSize
-    }
-  })
-}
-
-function defineCurrentSlide(scrollLeft = 0) {
-  for (const slide of slides) {
-    if (slide.position !== scrollLeft) {
-      slide.current = false
-    } else {
-      slide.current = true
-      break
-    }
-  }
-}
-
-function getCurrentSlidePosition() {
-  for (let position = 0; position < slides.length; position++)
-    if (slides[position].current)
-      return position
-}
+// function stopAlarm() {
+//   const alarm = document.getElementById('alarm')
+//   alarm.pause()
+//   alarm.currentTime = 0
+// }
 
 function submitMessage(event) {
-  event.preventDefault();
+  event.preventDefault()
+}
+
+export {
+  selectTimer
 }

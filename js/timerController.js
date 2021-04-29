@@ -31,7 +31,7 @@ export default class TimerController {
     decreaseTimer() {
         this._timer.currentSeconds = this._timer.currentSeconds > 0 ? this._timer.currentSeconds - 1 : 59
         this._timer.currentMinutes = this._timer.currentSeconds === 59 && this._timer.currentMinutes > 0 ? this._timer.currentMinutes - 1 : this._timer.currentMinutes
-        this._timer.currentHours = this._timer.currentMinutes === 59 && this._timer.currentHours > 0 ? this._timer.currentHours - 1 : this._timer.currentHours
+        this._timer.currentHours = this._timer.currentMinutes === 59 && this._timer.currentSeconds === 59 && this._timer.currentHours > 0 ? this._timer.currentHours - 1 : this._timer.currentHours
     }
 
     timeIsOver() {
