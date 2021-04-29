@@ -14,12 +14,13 @@ window.addEventListener('load', () => {
   document.getElementById('5minutes').addEventListener('click', handlePresetTimeSelection)
   document.getElementById('25minutes').addEventListener('click', handlePresetTimeSelection)
   document.getElementById('50minutes').addEventListener('click', handlePresetTimeSelection)
-  document.getElementById('execute').addEventListener('click', () => executeTimer())
-  document.getElementById('reload').addEventListener('click', () => reloadTimer())
+  document.getElementById('execute').addEventListener('click', toggleTimerMode)
+  document.getElementById('reload').addEventListener('click', reloadTimer)
   document.getElementById('submit-message').addEventListener('click', submitMessage)
-  document.getElementById('hours').addEventListener('keydown', () => { if (timerController.isPlaying) executeTimer() })
-  document.getElementById('minutes').addEventListener('keydown', () => { if (timerController.isPlaying) executeTimer() })
-  document.getElementById('seconds').addEventListener('keydown', () => { if (timerController.isPlaying) executeTimer() })
+  document.getElementById('hours').addEventListener('keydown', () => { if (timerController.isPlaying) toggleTimerMode() })
+  document.getElementById('minutes').addEventListener('keydown', () => { if (timerController.isPlaying) toggleTimerMode() })
+  document.getElementById('seconds').addEventListener('keydown', () => { if (timerController.isPlaying) toggleTimerMode() })
+  document.getElementById('alarm').addEventListener('pause', reloadTimer)
   if (mobileEnvironments.test(navigator.userAgent)) setUpEnvironmentWithModule(mobile)
   else setUpEnvironmentWithModule(desktop)
 })
@@ -39,20 +40,40 @@ function startTimer() {
       changeTimerValueOnScreen()
       if (timerController.timeIsOver()) {
         timerController.reloadTimer()
-        // changeTimerValueOnScreen()
         playAlarm()
       }
     }
   }, oneSecond)
 }
 
-function executeTimer() {
-  if (timerController.isPlaying) {
-    timerController.executeTimer(false)
-    // stopAlarm()
-  }
-  else timerController.executeTimer(true)
+function toggleTimerMode() {
+  if (timerController.isPlaying) return toggleTimerModeWhenPlaying()
+  if (alarmIsPlaying()) return toggleTimerModeWhenAlarmPlaying()
+
+  return toggleTimerModeWhenNotPlaying()
+}
+
+function toggleTimerModeWhenPlaying() {
+  timerController.toggleTimerMode(false)
   changeExecuteImage()
+}
+
+function toggleTimerModeWhenAlarmPlaying() {
+  timerController.toggleTimerMode(false)
+  changeExecuteImage()
+  stopAlarm()
+}
+
+function toggleTimerModeWhenNotPlaying() {
+  timerController.toggleTimerMode(true)
+  changeExecuteImage()
+}
+
+function reloadTimer() {
+  timerController.reloadTimer()
+  changeTimerValueOnScreen()
+  changeExecuteImage()
+  stopAlarm()
 }
 
 function handlePresetTimeSelection(event) {
@@ -68,13 +89,6 @@ function updatePresetTimes() {
     if (option.dataset.time === timerFormatted) option.classList.add('selected')
     else option.classList.remove('selected')
   })
-}
-
-function reloadTimer() {
-  timerController.reloadTimer()
-  changeTimerValueOnScreen()
-  changeExecuteImage()
-  // stopAlarm()
 }
 
 function selectTimer(hours, minutes, seconds) {
@@ -98,17 +112,21 @@ function changeExecuteImage() {
   document.getElementById('execute').src = timerController.isPlaying ? 'src/pause.png' : 'src/play.png'
 }
 
+function alarmIsPlaying() {
+  return document.getElementById('alarm').currentTime !== 0
+}
+
 function playAlarm() {
   const alarm = document.getElementById('alarm')
   alarm.currentTime = 0
   alarm.play()
 }
 
-// function stopAlarm() {
-//   const alarm = document.getElementById('alarm')
-//   alarm.pause()
-//   alarm.currentTime = 0
-// }
+function stopAlarm() {
+  const alarm = document.getElementById('alarm')
+  alarm.pause()
+  alarm.currentTime = 0
+}
 
 function submitMessage(event) {
   event.preventDefault()
