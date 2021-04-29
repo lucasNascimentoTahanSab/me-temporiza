@@ -8,6 +8,8 @@ const slides = [];
     defineCurrentSlide()
 })()
 
+window.addEventListener('resize', manageWindowResize)
+
 function setUpEvents() {
     document.getElementById('left-last').addEventListener('click', goToLast)
     document.getElementById('right-second').addEventListener('click', goToNext)
@@ -31,9 +33,7 @@ function handleCustomTimeSelection(event) {
     if (event.key < '0' || event.key > '9') return false
 
     const characters = event.target.value.split('')
-    const newTimeValue = characters[1] + event.key
-
-    event.target.value = newTimeValue
+    event.target.value = characters[1] + event.key
     selectTimer(document.getElementById('hours').value, document.getElementById('minutes').value, document.getElementById('seconds').value)
 }
 
@@ -43,12 +43,12 @@ function handleCustomTimeSelection(event) {
  * is needed here to avoid unexpected behavior.
  */
 function handleBackspacePressed(event) {
-    if (event.keyCode === 8) {
-        event.preventDefault()
-        const characters = event.target.value.split('')
-        event.target.value = characters[0] === '0' ? '00' : '0' + characters[1]
-        selectTimer(document.getElementById('hours').value, document.getElementById('minutes').value, document.getElementById('seconds').value)
-    }
+    if (event.keyCode !== 8) return true
+
+    event.preventDefault()
+    const characters = event.target.value.split('')
+    event.target.value = characters[0] === '0' ? '00' : '0' + characters[1]
+    selectTimer(document.getElementById('hours').value, document.getElementById('minutes').value, document.getElementById('seconds').value)
 }
 
 function manageWindowResize() {

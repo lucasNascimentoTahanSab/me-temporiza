@@ -11,7 +11,7 @@ export default class TimerController {
         return this._timer.isPlaying
     }
 
-    executeTimer(play) {
+    toggleTimerMode(play) {
         if (play) this._playTimer()
         else this._pauseTimer()
     }
