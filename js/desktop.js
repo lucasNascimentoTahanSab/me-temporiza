@@ -2,13 +2,11 @@ import { selectTimer } from './index.js'
 
 const slides = [];
 
-(function setUpDefinitions() {
+(() => {
     setUpEvents()
     defineSlides()
     defineCurrentSlide()
 })()
-
-window.addEventListener('resize', manageWindowResize)
 
 function setUpEvents() {
     document.getElementById('left-last').addEventListener('click', goToLast)
@@ -33,7 +31,9 @@ function handleCustomTimeSelection(event) {
     if (event.key < '0' || event.key > '9') return false
 
     const characters = event.target.value.split('')
-    event.target.value = characters[1] + event.key
+    const newTimeValue = characters[1] + event.key
+
+    event.target.value = newTimeValue
     selectTimer(document.getElementById('hours').value, document.getElementById('minutes').value, document.getElementById('seconds').value)
 }
 

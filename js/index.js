@@ -3,9 +3,22 @@ import TimerController from './timerController.js'
 const mobileEnvironments = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
 const desktop = 'js/desktop.js'
 const mobile = 'js/mobile.js'
+
+/**
+ * Constant responsible for checking if
+ * hours, minutes and seconds selected are
+ * valid as input, returning true if they are.
+ */
+const maxValidTimeInput = {
+  hours: 23,
+  minutes: 59,
+  seconds: 59
+}
+
 const timerController = new TimerController()
 const oneSecond = 1000
 let timerFormatted
+
 window.addEventListener('load', () => {
   startTimer()
   changeTimerValueOnScreen()
@@ -15,6 +28,9 @@ window.addEventListener('load', () => {
   document.getElementById('execute').addEventListener('click', () => executeTimer())
   document.getElementById('reload').addEventListener('click', () => reloadTimer())
   document.getElementById('submit-message').addEventListener('click', submitMessage)
+  document.getElementById('hours').addEventListener('keydown', () => { if (timerController.isPlaying) executeTimer() })
+  document.getElementById('minutes').addEventListener('keydown', () => { if (timerController.isPlaying) executeTimer() })
+  document.getElementById('seconds').addEventListener('keydown', () => { if (timerController.isPlaying) executeTimer() })
   if (mobileEnvironments.test(navigator.userAgent)) setUpEnvironmentWithModule(mobile)
   else setUpEnvironmentWithModule(desktop)
 })
@@ -73,6 +89,9 @@ function reloadTimer() {
 }
 
 function selectTimer(hours, minutes, seconds) {
+  hours = hours > maxValidTimeInput.hours ? maxValidTimeInput.hours : hours
+  minutes = minutes > maxValidTimeInput.minutes ? maxValidTimeInput.minutes : minutes
+  seconds = seconds > maxValidTimeInput.seconds ? maxValidTimeInput.seconds : seconds
   timerController.selectTimer(hours, minutes, seconds)
   timerFormatted = timerController.getTimeFormatted()
   updatePresetTimes()
