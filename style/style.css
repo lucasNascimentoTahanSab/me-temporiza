@@ -56,6 +56,20 @@ img {
   max-width: 100%;
 }
 
+.nav-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: var(--color-background-lighter);
+}
+
+.nav-container__title {
+  opacity: 1;
+  transition: 0.5s;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -269,6 +283,10 @@ img {
 
 .form-button:active {
   box-shadow: none;
+}
+
+.hide {
+  opacity: 0;
 }
 
 @media (max-width: 52.5rem) {

@@ -11,6 +11,7 @@ const slides = [];
 window.addEventListener('resize', manageWindowResize)
 
 function setUpEvents() {
+    document.getElementById('back-to-home').addEventListener('click', () => goToSlidePosition(0))
     document.getElementById('left-last').addEventListener('click', goToLast)
     document.getElementById('right-second').addEventListener('click', goToNext)
     document.getElementById('left-home').addEventListener('click', goToLast)
@@ -20,7 +21,6 @@ function setUpEvents() {
     document.getElementById('left-third').addEventListener('click', goToLast)
     document.getElementById('right-last').addEventListener('click', goToNext)
     document.getElementById('left-fourth').addEventListener('click', goToLast)
-    document.getElementById('right-home').addEventListener('click', goToNext)
     $('#hours').keypress(handleCustomTimeSelection)
     $('#minutes').keypress(handleCustomTimeSelection)
     $('#seconds').keypress(handleCustomTimeSelection)
@@ -59,12 +59,20 @@ function manageWindowResize() {
     slideShow.scrollLeft = slides[getCurrentSlidePosition()].position
 }
 
+function goToSlidePosition(slidePosition) {
+    const slideShow = document.getElementById('slide-show')
+    slideShow.scrollLeft = slides[slidePosition].position
+    defineCurrentSlide(slides[slidePosition].position)
+    manageTitlePresentation()
+}
+
 function goToNext() {
     const slideShow = document.getElementById('slide-show')
     const currentSlidePosition = getCurrentSlidePosition()
     const nextSlidePosition = currentSlidePosition < (slides.length - 1) ? currentSlidePosition + 1 : 0
     slideShow.scrollLeft = slides[nextSlidePosition].position
     defineCurrentSlide(slides[nextSlidePosition].position)
+    manageTitlePresentation()
 }
 
 function goToLast() {
@@ -73,6 +81,7 @@ function goToLast() {
     const lastSlidePosition = currentSlidePosition > 0 ? currentSlidePosition - 1 : (slides.length - 1)
     slideShow.scrollLeft = slides[lastSlidePosition].position
     defineCurrentSlide(slides[lastSlidePosition].position)
+    manageTitlePresentation()
 }
 
 function defineSlides() {
@@ -114,4 +123,11 @@ function getCurrentSlidePosition() {
     for (let position = 0; position < slides.length; position++)
         if (slides[position].current)
             return position
+}
+
+function manageTitlePresentation() {
+    const currentSlide = getCurrentSlidePosition()
+    const navbarTitle = document.getElementById('back-to-home')
+    if (currentSlide === 0) navbarTitle.classList.add('hide')
+    else navbarTitle.classList.remove('hide')
 }
