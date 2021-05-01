@@ -9,7 +9,10 @@
     <meta name="author" content="Lucas Nascimento Tahan Sab">
     <meta name="keywords" content="Me Temporiza!, temporizador, temporizado online, pomodoro, técnica pomodoro">
     <meta name="description" content="Está procurando por um temporizador online? Use o Me Temporiza!">
-    <link rel="icon" href="src/logo.png">
+    <meta name="theme-color" content="#BB8FCE">
+    <link rel="apple-touch-icon" href="src/logoMin.png">
+    <link rel="icon" href="src/logoMin.png">
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style/style.css">
     <script type="module" src="js/index.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -50,8 +53,10 @@
                       id="seconds"></input>
                   </div>
                   <div class="timer__content--item">
-                    <img class="clickable" id="execute" src="src/play.png">
-                    <img class="clickable" id="reload" src="src/reload.png">
+                    <img class="clickable" id="execute" src="src/play.png"
+                      alt="Botão para iniciar ou pausar contagem do cronômetro">
+                    <img class="clickable" id="reload" src="src/reload.png"
+                      alt="Botão para reiniciar contagem do cronômetro">
                   </div>
                 </div>
               </div>
