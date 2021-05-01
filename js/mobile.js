@@ -5,8 +5,10 @@ import { selectTimer } from './index.js'
 })()
 
 window.addEventListener('click', formatTimeInputs)
+window.addEventListener('scroll', manageNavbarPresentation)
 
 function setUpEvents() {
+    document.getElementById('back-to-home').addEventListener('click', goBackToHome)
     $('#hours').change(handleCustomTimeSelection)
     $('#minutes').change(handleCustomTimeSelection)
     $('#seconds').change(handleCustomTimeSelection)
@@ -24,4 +26,28 @@ function formatTimeInputs(event) {
 
 function handleCustomTimeSelection() {
     selectTimer(document.getElementById('hours').value, document.getElementById('minutes').value, document.getElementById('seconds').value)
+}
+
+function goBackToHome() {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    })
+}
+
+function manageNavbarPresentation(event) {
+    const timer = document.getElementById('timer')
+    const currentScrollPosition = event.currentTarget.scrollY
+    const navbar = document.getElementById('navbar')
+    const navbarTitle = document.getElementById('back-to-home')
+    if (currentScrollPosition >= timer.getBoundingClientRect().y) {
+        navbarTitle.classList.remove('hide')
+        navbar.classList.add('box-shadow')
+        navbar.classList.add('dark-page')
+    } else {
+        navbarTitle.classList.add('hide')
+        navbar.classList.remove('box-shadow')
+        navbar.classList.remove('dark-page')
+    }
 }

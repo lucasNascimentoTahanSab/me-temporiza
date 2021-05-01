@@ -1,0 +1,23 @@
+{
+    "name": "Me Temporiza!",
+    "icons": [{
+            "src": "/src/logoMin.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/src/logoMax.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any maskable"
+        }
+    ],
+    "start_url": "/",
+    "background_color": "#BB8FCE",
+    "display": "fullscreen",
+    "scope": "/",
+    "theme_color": "#3367D6",
+    "shortcuts": [],
+    "description": "O Me Temporiza! é uma forma simples de se gerenciar suas tarefas diárias, tornando automático o controle de tempo gasto em cada uma"
+}

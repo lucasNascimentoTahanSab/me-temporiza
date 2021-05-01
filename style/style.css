@@ -11,9 +11,11 @@
   --font-family-title: 'Lobster', cursive;
   --font-family-text: 'Lato', sans-serif;
 
+  --font-size-nav-title: 2.75rem;
+  --font-size-nav-text: .75rem;
   --font-size-title: 3rem;
-  --font-size-text-timer: 1.4rem;
   --font-size-text: 1rem;
+  --font-size-text-timer: 1.4rem;
 
   --font-weight-regular: 500;
   --font-weight-bold: 600;
@@ -62,12 +64,15 @@ img {
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 10vh;
   color: var(--color-background-lighter);
+  font-size: var(--font-size-nav-text);
 }
 
 .nav-container__title {
   opacity: 1;
   transition: 0.5s;
+  font-size: var(--font-size-nav-title);
 }
 
 .container {
@@ -276,9 +281,9 @@ img {
   border-style: none;
   font-family: 'Lato', sans-serif;
   font-weight: var(--font-weight-bold);
-  background-color: #BB8FCE;
+  background-color: var(--color-background-light);
+  color: var(--color-call-to-action);
   box-shadow: 0 0 1rem .1rem rgba(0, 0, 0, .2);
-  color: #741384;
 }
 
 .form-button:active {
@@ -287,10 +292,12 @@ img {
 
 .hide {
   opacity: 0;
+  visibility: hidden;
 }
 
 @media (max-width: 52.5rem) {
   :root {
+    --font-size-nav-title: 1.75rem;
     --font-size-title: 2rem;
     --font-size-text-timer: 1.3rem;
     --font-size-text: 0.95rem;
@@ -298,6 +305,16 @@ img {
 
   img {
     max-width: 70%;
+  }
+
+  .nav-container {
+    position: fixed;
+    box-shadow: none;
+    transition: 0.5s;
+  }
+
+  .box-shadow {
+    box-shadow: 0 0 1rem .1rem rgba(0, 0, 0, .2);
   }
 
   .container {
