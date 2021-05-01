@@ -11,7 +11,7 @@ const slides = [];
 window.addEventListener('resize', manageWindowResize)
 
 function setUpEvents() {
-    document.getElementById('back-to-home').addEventListener('click', () => goToSlidePosition(0))
+    document.getElementById('back-to-home').addEventListener('click', goBackToHome)
     document.getElementById('left-last').addEventListener('click', goToLast)
     document.getElementById('right-second').addEventListener('click', goToNext)
     document.getElementById('left-home').addEventListener('click', goToLast)
@@ -59,10 +59,10 @@ function manageWindowResize() {
     slideShow.scrollLeft = slides[getCurrentSlidePosition()].position
 }
 
-function goToSlidePosition(slidePosition) {
+function goBackToHome() {
     const slideShow = document.getElementById('slide-show')
-    slideShow.scrollLeft = slides[slidePosition].position
-    defineCurrentSlide(slides[slidePosition].position)
+    slideShow.scrollLeft = 0
+    defineCurrentSlide()
     manageTitlePresentation()
 }
 

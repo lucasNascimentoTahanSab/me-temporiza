@@ -292,10 +292,12 @@ img {
 
 .hide {
   opacity: 0;
+  visibility: hidden;
 }
 
 @media (max-width: 52.5rem) {
   :root {
+    --font-size-nav-title: 1.75rem;
     --font-size-title: 2rem;
     --font-size-text-timer: 1.3rem;
     --font-size-text: 0.95rem;
@@ -306,7 +308,13 @@ img {
   }
 
   .nav-container {
-    display: none;
+    position: fixed;
+    box-shadow: none;
+    transition: 0.5s;
+  }
+
+  .box-shadow {
+    box-shadow: 0 0 1rem .1rem rgba(0, 0, 0, .2);
   }
 
   .container {
