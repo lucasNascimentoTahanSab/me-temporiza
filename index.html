@@ -23,12 +23,12 @@
 
   <body>
     <nav class="nav-container" id="navbar">
-      <h1 class="nav-container__title hide clickable" id="back-to-home">Me Temporiza!</h1>
+      <h1 class="nav-container__title hide clickable no-select" id="back-to-home">Me Temporiza!</h1>
     </nav>
     <main class="container" id="slide-show">
       <div class="inner-container dark-page" id="homepage">
         <div class="inner-container--content">
-          <span class="arrow-left light-border clickable" id="left-last"></span>
+          <span class="arrow-left light-border clickable no-select" id="left-last"></span>
           <section class="inner-container--central-content">
             <div class="central-content__item">
               <header>
@@ -37,37 +37,38 @@
               </header>
               <div class="timer" id="timer">
                 <div class="timer__options">
-                  <span class="timer__options--item clickable selected" id="5minutes" data-time="00:05:00">5</span>
-                  <span class=" timer__options--item clickable" id="25minutes" data-time="00:25:00">25</span>
-                  <span class="timer__options--item clickable" id="50minutes" data-time="00:50:00">50</span>
+                  <span class="timer__options--item clickable selected no-select" id="5minutes"
+                    data-time="00:05:00">5</span>
+                  <span class=" timer__options--item clickable no-select" id="25minutes" data-time="00:25:00">25</span>
+                  <span class="timer__options--item clickable no-select" id="50minutes" data-time="00:50:00">50</span>
                 </div>
                 <div class="timer__content">
                   <div class="timer__content--item">
-                    <input class="text-input timer-input " maxlength="2" value="00" data-id="timeInput"
+                    <input class="text-input timer-input" maxlength="2" value="00" data-id="timeInput"
                       id="hours"></input>
                     <span style="margin-inline: .01rem;">:</span>
-                    <input class="text-input timer-input " maxlength="2" value="00" data-id="timeInput"
+                    <input class="text-input timer-input" maxlength="2" value="00" data-id="timeInput"
                       id="minutes"></input>
                     <span style="margin-inline: .01rem;">:</span>
-                    <input class="text-input timer-input " maxlength="2" value="00" data-id="timeInput"
+                    <input class="text-input timer-input" maxlength="2" value="00" data-id="timeInput"
                       id="seconds"></input>
                   </div>
                   <div class="timer__content--item">
-                    <img class="clickable" id="execute" src="src/play.png"
+                    <img class="clickable no-select" id="execute" src="src/play.png"
                       alt="Botão para iniciar ou pausar contagem do cronômetro">
-                    <img class="clickable" id="reload" src="src/reload.png"
+                    <img class="clickable no-select" id="reload" src="src/reload.png"
                       alt="Botão para reiniciar contagem do cronômetro">
                   </div>
                 </div>
               </div>
             </div>
           </section>
-          <span class="arrow-right light-border clickable" id="right-second"></span>
+          <span class="arrow-right light-border clickable no-select" id="right-second"></span>
         </div>
       </div>
       <div class="inner-container light-page" id="second-page">
         <div class="inner-container--content">
-          <span class="arrow-left dark-border clickable" id="left-home"></span>
+          <span class="arrow-left dark-border clickable no-select" id="left-home"></span>
           <section class="inner-container--central-content">
             <h2 class="central-content__item">“Tempo é dinheiro”, você já ouviu esta frase?</h2>
             <div class="division">&nbsp;</div>
@@ -86,12 +87,12 @@
               </div>
             </div>
           </section>
-          <span class="arrow-right dark-border clickable" id="right-third"></span>
+          <span class="arrow-right dark-border clickable no-select" id="right-third"></span>
         </div>
       </div>
       <div class="inner-container light-page" id="third-page">
         <div class="inner-container--content">
-          <span class="arrow-left dark-border clickable" id="left-second"></span>
+          <span class="arrow-left dark-border clickable no-select" id="left-second"></span>
           <section class="inner-container--central-content">
             <h2 class="central-content__item">Quer saber como você pode fazer isso?</h2>
             <div class="division">&nbsp;</div>
@@ -120,12 +121,12 @@
               </ul>
             </div>
           </section>
-          <span class="arrow-right dark-border clickable" id="right-fourth"></span>
+          <span class="arrow-right dark-border clickable no-select" id="right-fourth"></span>
         </div>
       </div>
       <div class="inner-container light-page" id="fourth-page">
         <div class="inner-container--content">
-          <span class="arrow-left dark-border clickable" id="left-third"></span>
+          <span class="arrow-left dark-border clickable no-select" id="left-third"></span>
           <section class="inner-container--central-content">
             <h2 class="central-content__item">
               <div>
@@ -134,12 +135,12 @@
               </div>
             </h2>
           </section>
-          <span class="arrow-right dark-border clickable" id="right-last"></span>
+          <span class="arrow-right dark-border clickable no-select" id="right-last"></span>
         </div>
       </div>
       <div class="inner-container dark-page" id="last-page">
         <div class="inner-container--content">
-          <span class="arrow-left light-border clickable" id="left-fourth"></span>
+          <span class="arrow-left light-border clickable no-select" id="left-fourth"></span>
           <section class="inner-container--central-content">
             <h2 class="central-content__item">Curtiu a ideia?</h2>
             <div class="division">&nbsp;</div>
@@ -154,7 +155,7 @@
                   <label for="message-body">Sua mensagem vem aqui:</label>
                   <textarea class="text-input large" id="message-body"></textarea>
                 </div>
-                <button class="form-button" id="submit-message">Enviar</button>
+                <button class="form-button no-select" id="submit-message">Enviar</button>
               </form>
             </div>
           </section>
