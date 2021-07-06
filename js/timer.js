@@ -5,15 +5,15 @@ export default class Timer {
   currentHours
   currentMinutes
   currentSeconds
-  isPlaying
+  remainingTime
 
   constructor() {
     this.initialHours = '00'
-    this.initialMinutes = '05'
+    this.initialMinutes = '00'
     this.initialSeconds = '00'
     this.currentHours = parseInt(this.initialHours)
     this.currentMinutes = parseInt(this.initialMinutes)
     this.currentSeconds = parseInt(this.initialSeconds)
-    this.isPlaying = false
+    this.remainingTime = 0
   }
 }
