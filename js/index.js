@@ -7,7 +7,6 @@ const mobile = 'js/mobile.js'
 const timerController = new TimerController()
 const oneSecond = 1000
 let timeFormatted
-let expected
 let timeout
 
 window.addEventListener('load', () => {
@@ -15,9 +14,9 @@ window.addEventListener('load', () => {
   changeTimerValueOnScreen()
   document.getElementById('execute').addEventListener('click', toggleTimerMode)
   document.getElementById('reload').addEventListener('click', reloadTimer)
-  document.getElementById('hours').addEventListener('keydown', () => { if (timerController.isPlaying) toggleTimerMode() })
-  document.getElementById('minutes').addEventListener('keydown', () => { if (timerController.isPlaying) toggleTimerMode() })
-  document.getElementById('seconds').addEventListener('keydown', () => { if (timerController.isPlaying) toggleTimerMode() })
+  document.getElementById('hours').addEventListener('keydown', () => { if (timerController.isPlaying) toggleTimerModeWhenPlaying() })
+  document.getElementById('minutes').addEventListener('keydown', () => { if (timerController.isPlaying) toggleTimerModeWhenPlaying() })
+  document.getElementById('seconds').addEventListener('keydown', () => { if (timerController.isPlaying) toggleTimerModeWhenPlaying() })
   document.getElementById('5minutes').addEventListener('click', handlePresetTimeSelection)
   document.getElementById('25minutes').addEventListener('click', handlePresetTimeSelection)
   document.getElementById('50minutes').addEventListener('click', handlePresetTimeSelection)
@@ -27,12 +26,20 @@ window.addEventListener('load', () => {
   else setUpEnvironmentWithModule(desktop)
 })
 
-function setUpEnvironmentWithModule(module) {
-  const head = document.querySelector('head')
-  const script = document.createElement('script')
-  script.type = 'module'
-  script.src = module
-  head.appendChild(script)
+function handlePresetTimeSelection(event) {
+  const timeSplitted = event.target.dataset.time.split(':')
+  selectTimer(timeSplitted[0], timeSplitted[1], timeSplitted[2])
+  changeTimerValueOnScreen()
+  reloadTimer()
+}
+
+function selectTimer(hours, minutes, seconds) {
+  if (hours > 23) hours = 23
+  if (minutes > 59) minutes = 59
+  if (seconds > 59) seconds = 59
+  timerController.selectTimer(hours, minutes, seconds)
+  timeFormatted = timerController.getTimeFormatted()
+  updatePresetTimes()
 }
 
 function toggleTimerMode() {
@@ -60,36 +67,6 @@ function toggleTimerModeWhenNotPlaying() {
   startTimer()
 }
 
-function handlePresetTimeSelection(event) {
-  const timeSplitted = event.target.dataset.time.split(':')
-  selectTimer(timeSplitted[0], timeSplitted[1], timeSplitted[2])
-  changeTimerValueOnScreen()
-  reloadTimer()
-}
-
-function stopTimer() {
-  clearTimeout(timeout)
-}
-
-function startTimer() {
-  expected = Date.now() + oneSecond
-  timeout = setTimeout(countDown, oneSecond)
-}
-
-function countDown() {
-  const drift = Date.now() - expected
-  expected += oneSecond
-  decreaseTimer()
-
-  if (!timerController.timeIsOver()) {
-    const newTimeout = drift < oneSecond && drift > 0 ? oneSecond - drift : oneSecond
-    timeout = setTimeout(countDown, newTimeout)
-  } else {
-    reloadTimer()
-    playAlarm()
-  }
-}
-
 function reloadTimer() {
   stopTimer()
   timerController.reloadTimer()
@@ -98,18 +75,28 @@ function reloadTimer() {
   stopAlarm()
 }
 
-function decreaseTimer() {
-  timerController.decreaseTimer()
-  changeTimerValueOnScreen()
+function stopTimer() {
+  clearTimeout(timeout)
 }
 
-function selectTimer(hours, minutes, seconds) {
-  if (hours > 23) hours = 23
-  if (minutes > 59) minutes = 59
-  if (seconds > 59) seconds = 59
-  timerController.selectTimer(hours, minutes, seconds)
-  timeFormatted = timerController.getTimeFormatted()
-  updatePresetTimes()
+function startTimer() {
+  timeout = setTimeout(countDown, oneSecond)
+}
+
+function countDown() {
+  updateTimer()
+  if (!timerController.timeIsOver()) {
+    timeout = setTimeout(countDown, oneSecond)
+    return
+  }
+
+  reloadTimer()
+  playAlarm()
+}
+
+function updateTimer() {
+  timerController.updateTimer()
+  changeTimerValueOnScreen()
 }
 
 function changeTimerValueOnScreen() {
@@ -150,6 +137,19 @@ function changeExecuteImage() {
 
 function submitMessage(event) {
   event.preventDefault()
+}
+
+/**
+ * Method responsible for setting up the DOM
+ * with the environment correspondent script,
+ * to avoid extra script loading.
+ */
+function setUpEnvironmentWithModule(module) {
+  const head = document.querySelector('head')
+  const script = document.createElement('script')
+  script.type = 'module'
+  script.src = module
+  head.appendChild(script)
 }
 
 export { selectTimer }

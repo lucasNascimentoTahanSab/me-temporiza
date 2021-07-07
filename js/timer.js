@@ -5,7 +5,7 @@ export default class Timer {
   currentHours
   currentMinutes
   currentSeconds
-  remainingTime
+  finalTime
 
   constructor() {
     this.initialHours = '00'
@@ -14,6 +14,6 @@ export default class Timer {
     this.currentHours = parseInt(this.initialHours)
     this.currentMinutes = parseInt(this.initialMinutes)
     this.currentSeconds = parseInt(this.initialSeconds)
-    this.remainingTime = 0
+    this.finalTime = new Date
   }
 }

@@ -18,21 +18,21 @@ export default class TimerController {
 		else this._pauseTimer()
 	}
 
+	reloadTimer() {
+		this._pauseTimer()
+		this._resetCurrentTime()
+	}
+
 	selectTimer(hours, minutes, seconds) {
 		this._updateInitialTime(hours, minutes, seconds)
 		this._resetCurrentTime()
 	}
 
-	decreaseTimer() {
-		this._timer.remainingTime--
-		this._timer.currentSeconds = this._timer.remainingTime % 60
-		this._timer.currentMinutes = Math.floor(this._timer.remainingTime / 60) % 60
-		this._timer.currentHours = Math.floor(this._timer.remainingTime / 3600) % 60
-	}
-
-	reloadTimer() {
-		this._pauseTimer()
-		this._resetCurrentTime()
+	updateTimer() {
+		const newTime = this._timer.finalTime - Date.now()
+		this._timer.currentHours = this._getMillisecondsInHours(newTime)
+		this._timer.currentMinutes = this._getMillisecondsInMinutes(newTime)
+		this._timer.currentSeconds = this._getMillisecondsInSeconds(newTime)
 	}
 
 	getTimeFormatted() {
@@ -44,11 +44,17 @@ export default class TimerController {
 	}
 
 	timeIsOver() {
-		return this._timer.remainingTime === 0
+		return this._timer.finalTime <= Date.now()
 	}
 
 	_playTimer() {
 		this._isPlaying = true
+		this._timer.finalTime = new Date(
+			Date.now() +
+			this._getHoursInMilliseconds(this._timer.currentHours) +
+			this._getMinutesInMilliseconds(this._timer.currentMinutes) +
+			this._getSecondsInMilliseconds(this._timer.currentSeconds)
+		)
 	}
 
 	_pauseTimer() {
@@ -59,25 +65,36 @@ export default class TimerController {
 		this._timer.initialHours = hours
 		this._timer.initialMinutes = minutes
 		this._timer.initialSeconds = seconds
-		this._timer.remainingTime = this._getHoursInSeconds(hours) + this._getMinutesInSeconds(minutes) + seconds
 	}
 
 	_resetCurrentTime() {
 		this._timer.currentHours = parseInt(this._timer.initialHours)
 		this._timer.currentMinutes = parseInt(this._timer.initialMinutes)
 		this._timer.currentSeconds = parseInt(this._timer.initialSeconds)
-		this._timer.remainingTime =
-			this._getHoursInSeconds(this._timer.currentHours) +
-			this._getMinutesInSeconds(this._timer.currentMinutes) +
-			this._timer.currentSeconds
 	}
 
-	_getHoursInSeconds(hours) {
-		return typeof hours === 'number' ? Math.floor(hours * 3600) : 0
+	_getHoursInMilliseconds(hours) {
+		return typeof hours === 'number' ? this._getMinutesInMilliseconds(hours * 60) : 0
 	}
 
-	_getMinutesInSeconds(minutes) {
-		return typeof minutes === 'number' ? Math.floor(minutes * 60) : 0
+	_getMinutesInMilliseconds(minutes) {
+		return typeof minutes === 'number' ? this._getSecondsInMilliseconds(minutes * 60) : 0
+	}
+
+	_getSecondsInMilliseconds(seconds) {
+		return typeof seconds === 'number' ? Math.floor(seconds * 1000) : 0
+	}
+
+	_getMillisecondsInHours(milliseconds) {
+		return typeof milliseconds === 'number' ? Math.floor(milliseconds / 1000 / 60 / 60) : 0
+	}
+
+	_getMillisecondsInMinutes(milliseconds) {
+		return typeof milliseconds === 'number' ? Math.floor(milliseconds / 1000 / 60) : 0
+	}
+
+	_getMillisecondsInSeconds(milliseconds) {
+		return typeof milliseconds === 'number' ? Math.ceil(milliseconds / 1000) % 60 : 0
 	}
 
 	_formatTime(timeUnit) {
