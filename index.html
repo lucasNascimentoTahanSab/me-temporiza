@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" href="src/logomin.png">
     <link rel="icon" href="src/logomin.png">
     <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/index.css">
     <script type="module" src="js/index.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QYXGSGEKF0"></script>
@@ -23,7 +23,13 @@
 
   <body>
     <nav class="nav-container" id="navbar">
-      <h1 class="nav-container__title hide clickable no-select" id="back-to-home">Me Temporiza!</h1>
+      <div class="inner-nav-container">
+        <h1 class="nav-container__title hide clickable no-select" id="back-to-home">Me Temporiza!</h1>
+        <div class="nav-container__login-buttons">
+          <a href="pages/login.html" class="login-button" id="login">Entrar</a>
+          <a href="pages/subscribe.html" class="form-button no-select clickable" id="subscribe">Cadastrar</a>
+        </div>
+      </div>
     </nav>
     <main class="container" id="slide-show">
       <div class="inner-container dark-page" id="homepage">
@@ -32,7 +38,7 @@
           <section class="inner-container--central-content">
             <div class="central-content__item">
               <header>
-                <h1>Me Temporiza!</h1>
+                <h2>Me Temporiza!</h2>
                 <p>Temporize aqui o tempo que você utiliza em cada atividade!</p>
               </header>
               <div class="timer" id="timer">
@@ -60,6 +66,10 @@
                       alt="Botão para reiniciar contagem do cronômetro">
                   </div>
                 </div>
+              </div>
+              <div class="timer__login-buttons">
+                <a href="pages/login.html" class="login-button" id="login">Entrar</a>
+                <a href="pages/subscribe.html" class="form-button no-select clickable" id="subscribe">Cadastrar</a>
               </div>
             </div>
           </section>
@@ -155,7 +165,7 @@
                   <label for="message-body">Sua mensagem vem aqui:</label>
                   <textarea class="text-input large" id="message-body"></textarea>
                 </div>
-                <button class="form-button no-select" id="submit-message">Enviar</button>
+                <button class="form-button no-select clickable" id="submit-message">Enviar</button>
               </form>
             </div>
           </section>
