@@ -14,6 +14,7 @@
     <link rel="icon" href="src/logomin.png">
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="style/form.css">
     <script type="module" src="js/index.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QYXGSGEKF0"></script>
@@ -26,8 +27,8 @@
       <div class="inner-nav-container">
         <h1 class="nav-container__title hide clickable no-select" id="back-to-home">Me Temporiza!</h1>
         <div class="nav-container__login-buttons">
-          <a href="pages/login.html" class="login-button" id="login">Entrar</a>
-          <a href="pages/subscribe.html" class="standard-button no-select clickable" id="subscribe">Cadastrar</a>
+          <a href="pages/login.html" class="form-anchor-button" id="login">Entrar</a>
+          <a href="pages/subscribe.html" class="form-standard-button no-select clickable" id="subscribe">Cadastrar</a>
         </div>
       </div>
     </nav>
@@ -68,7 +69,7 @@
                 </div>
               </div>
               <div class="timer__login-buttons">
-                <a href="pages/login.html" class="login-button" id="login">Entrar</a>
+                <a href="pages/login.html" class="form-anchor-button" id="login">Entrar</a>
                 <a href="pages/subscribe.html" class="form-button no-select clickable" id="subscribe">Cadastrar</a>
               </div>
             </div>
@@ -164,7 +165,7 @@
                   </div>
                   <div class="form-element">
                     <label for="message-email">Seu email<span class="red-highlight">*</span></label>
-                    <input class="form-input" id="message-email"></input>
+                    <input class="form-input" type="email" id="message-email"></input>
                   </div>
                 </div>
                 <div class="form-element">
@@ -182,7 +183,7 @@
           <span class="arrow-right dark-border hide" id="right-home"></span>
         </div>
       </div>
-      <div class="pseudo-slide">&nbsp;</div>
+      <div class="hide-in-mobile">&nbsp;</div>
     </main>
     <audio id="alarm" src="src/alarm.mp3"></audio>
   </body>
