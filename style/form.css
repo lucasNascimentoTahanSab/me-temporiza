@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+:root {
+  --color-call-to-action: #741384;
+  --color-background-dark: #453E69;
+  --color-background-light: #BB8FCE;
+
+  --font-size-text: 1rem;
+
+  --font-weight-bold: 600;
+
+  --gap-form: 2%;
+}
+
+.central-content__form-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-form);
+  flex: 2;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.form-input {
+  width: 100%;
+  padding: .5rem;
+  outline: none;
+  border-radius: 5px;
+  border-color: var(--color-background-dark);
+  border-width: 1px;
+  text-align: left;
+  background-color: #E8DAEF;
+  color: var(--color-background-dark);
+}
+
+.form-input--row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-form);
+  width: 100%;
+}
+
+.form-element {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  height: fit-content;
+}
+
+.form-button {
+  padding: .5rem 1rem;
+  border-radius: 5px;
+  border-style: none;
+  font-family: 'Lato', sans-serif;
+  font-weight: var(--font-weight-bold);
+  background-color: var(--color-background-light);
+  color: var(--color-call-to-action);
+  box-shadow: 0 0 1rem .1rem rgba(0, 0, 0, .2);
+  text-decoration: none;
+  width: 100%;
+}
+
+.form-standard-button {
+  padding: .5rem 1rem;
+  border-radius: 5px;
+  border-style: none;
+  font-family: 'Lato', sans-serif;
+  font-weight: var(--font-weight-bold);
+  background-color: var(--color-background-light);
+  color: var(--color-call-to-action);
+  box-shadow: 0 0 1rem .1rem rgba(0, 0, 0, .2);
+  text-decoration: none;
+}
+
+.form-button:visited {
+  color: var(--color-call-to-action);
+}
+
+.form-anchor-button {
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+}
+
+.form-anchor-button:visited {
+  color: inherit;
+}
+
+.form-anchor-button:active {
+  box-shadow: none;
+}
+
+@media (max-width: 80rem) {
+  .form-input--row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 52.5rem) {
+  .form-element {
+    margin-top: 1rem;
+  }
+
+  .form-button {
+    margin-top: 2rem;
+  }
+}

@@ -13,6 +13,7 @@
     <link rel="apple-touch-icon" href="../src/logomin.png">
     <link rel="icon" href="../src/logomin.png">
     <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../style/form.css">
     <link rel="stylesheet" href="../style/index.css">
     <link rel="stylesheet" href="../style/subscribe.css">
     <script type="module" src="../js/subscribe.js"></script>
@@ -22,9 +23,19 @@
   </head>
 
   <body>
+    <nav class="nav-container" id="navbar">
+      <div class="inner-nav-container">
+        <div class="inner-nav--left">
+          <a href="../index.html" class="form-anchor-button arrow-left dark-border clickable no-select hide-in-desktop"
+            id="home-page-mobile"></a>
+        </div>
+      </div>
+    </nav>
     <main class="container">
       <div class="inner-container light-page">
         <div class="inner-container--content">
+          <a href="../index.html" class="form-anchor-button arrow-left dark-border clickable no-select"
+            id="home-page-desktop"></a>
           <section class="inner-container--central-content">
             <div class="central-content__item">
               <div>
@@ -42,15 +53,21 @@
                 </div>
                 <div class="form-element">
                   <label for="email">Email<span class="red-highlight">*</span></label>
-                  <input class="form-input" id="email"></input>
+                  <input class="form-input" type="email" id="email"></input>
                 </div>
                 <div class="form-element">
                   <label for="password">Senha<span class="red-highlight">*</span></label>
                   <input class="form-input" id="password"></input>
                 </div>
                 <button class="form-button top-margin no-select clickable" id="subscribe">Cadastrar</button>
+                <div class="form-input--row top-margin centralize">
+                  <span> Já tem uma conta?
+                    <a href="./login.html" class="form-anchor-button content-highlight clickable">Entre aqui!</a>
+                  </span>
+                </div>
               </form>
             </div>
+            <span class="arrow-right dark-border hide" id="right-home"></span>
           </section>
         </div>
       </div>
