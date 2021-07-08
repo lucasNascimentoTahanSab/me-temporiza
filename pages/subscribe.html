@@ -12,7 +12,7 @@
     <meta name="theme-color" content="#BB8FCE">
     <link rel="apple-touch-icon" href="../src/logomin.png">
     <link rel="icon" href="../src/logomin.png">
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="../manifest.json">
     <link rel="stylesheet" href="../style/index.css">
     <link rel="stylesheet" href="../style/subscribe.css">
     <script type="module" src="../js/subscribe.js"></script>
@@ -22,7 +22,39 @@
   </head>
 
   <body>
-
+    <main class="container">
+      <div class="inner-container light-page">
+        <div class="inner-container--content">
+          <section class="inner-container--central-content">
+            <div class="central-content__item">
+              <div>
+                <h2>Chega mais!</h2>
+                <p>Seja bem-vindo ao Me Temporiza!</p>
+                <p>Crie sua conta para ter acesso a todos os benefícios da plataforma!</p>
+              </div>
+            </div>
+            <div class="division">&nbsp;</div>
+            <div class="central-content__item">
+              <form class="central-content__form-item">
+                <div class="form-element">
+                  <label for="name">Nome de usuário<span class="red-highlight">*</span></label>
+                  <input class="form-input" id="name"></input>
+                </div>
+                <div class="form-element">
+                  <label for="email">Email<span class="red-highlight">*</span></label>
+                  <input class="form-input" id="email"></input>
+                </div>
+                <div class="form-element">
+                  <label for="password">Senha<span class="red-highlight">*</span></label>
+                  <input class="form-input" id="password"></input>
+                </div>
+                <button class="form-button top-margin no-select clickable" id="subscribe">Cadastrar</button>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
   </body>
 
 </html>

@@ -474,9 +474,12 @@ a:active {
     margin-bottom: 1rem;
   }
 
-  .form-element,
-  .form-button {
+  .form-element {
     margin-top: 1rem;
+  }
+
+  .form-button {
+    margin-top: 2rem;
   }
 
   .pseudo-slide {
