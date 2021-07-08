@@ -296,7 +296,7 @@ button:active {
 }
 
 .top-margin {
-  margin-top: var(--gap-standard);
+  margin-top: var(--gap-form);
 }
 
 .hide {
@@ -351,7 +351,7 @@ button:active {
   .container {
     flex-direction: column;
     height: fit-content;
-    overflow: auto;
+    overflow-y: auto;
   }
 
   .inner-container {
@@ -401,5 +401,9 @@ button:active {
 
   .hide-in-mobile {
     display: none;
+  }
+
+  .top-margin {
+    margin-top: var(--gap-standard);
   }
 }
