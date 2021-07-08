@@ -1,3 +1,9 @@
+:root {
+  --font-size-tiny-text: .75rem;
+
+  --gap-form-tiny: 1%;
+}
+
 body {
   background-color: var(--color-background-lighter);
 }
@@ -10,6 +16,14 @@ body {
 
 .hide-in-desktop {
   display: none;
+}
+
+.tiny-text {
+  font-size: var(--font-size-tiny-text);
+}
+
+.top-margin-tiny {
+  margin-top: var(--gap-form-tiny);
 }
 
 @media (max-width: 52.5rem) {
