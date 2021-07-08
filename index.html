@@ -27,7 +27,7 @@
         <h1 class="nav-container__title hide clickable no-select" id="back-to-home">Me Temporiza!</h1>
         <div class="nav-container__login-buttons">
           <a href="pages/login.html" class="login-button" id="login">Entrar</a>
-          <a href="pages/subscribe.html" class="form-button no-select clickable" id="subscribe">Cadastrar</a>
+          <a href="pages/subscribe.html" class="standard-button no-select clickable" id="subscribe">Cadastrar</a>
         </div>
       </div>
     </nav>
@@ -148,31 +148,41 @@
           <span class="arrow-right dark-border clickable no-select" id="right-last"></span>
         </div>
       </div>
-      <div class="inner-container dark-page" id="last-page">
+      <div class="inner-container light-page" id="last-page">
         <div class="inner-container--content">
-          <span class="arrow-left light-border clickable no-select" id="left-fourth"></span>
+          <span class="arrow-left dark-border clickable no-select" id="left-fourth"></span>
           <section class="inner-container--central-content">
             <h2 class="central-content__item">Curtiu a ideia?</h2>
             <div class="division">&nbsp;</div>
             <div class="central-content__item">
-              <form class="central-content__item centralize">
-                <p>Manda suas sugestões e comentários para a gente, vamos adorar ler!</p>
-                <div class="form-element">
-                  <label for="message-title">Título:</label>
-                  <input class="text-input" id="message-title"></input>
+              <p>Manda suas sugestões e comentários para a gente, vamos adorar ler!</p>
+              <form class="central-content__form-item">
+                <div class="form-input--row">
+                  <div class="form-element">
+                    <label for="message-title">Seu nome<span class="red-highlight">*</span></label>
+                    <input class="form-input" id="message-name"></input>
+                  </div>
+                  <div class="form-element">
+                    <label for="message-title">Seu email<span class="red-highlight">*</span></label>
+                    <input class="form-input" id="message-email"></input>
+                  </div>
                 </div>
                 <div class="form-element">
-                  <label for="message-body">Sua mensagem vem aqui:</label>
-                  <textarea class="text-input large" id="message-body"></textarea>
+                  <label for="message-title">Título</label>
+                  <input class="form-input" id="message-title"></input>
                 </div>
-                <button class="form-button no-select clickable" id="submit-message">Enviar</button>
+                <div class="form-element">
+                  <label for="message-body">Sua mensagem vem aqui</label>
+                  <textarea class="form-input large" id="message-body"></textarea>
+                </div>
+                <button class="form-button top-margin no-select clickable" id="submit-message">Enviar</button>
               </form>
             </div>
           </section>
-          <span class="arrow-right light-border hide" id="right-home"></span>
+          <span class="arrow-right dark-border hide" id="right-home"></span>
         </div>
       </div>
-      <div>&nbsp;</div>
+      <div class="pseudo-slide">&nbsp;</div>
     </main>
     <audio id="alarm" src="src/alarm.mp3"></audio>
   </body>
