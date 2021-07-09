@@ -1,36 +1,3 @@
-:root {
-  --font-size-tiny-text: .75rem;
-}
-
 body {
   background-color: var(--color-background-lighter);
-}
-
-.inner-nav--left {
-  position: absolute;
-  left: 0;
-  width: fit-content;
-}
-
-.hide-in-desktop {
-  display: none;
-}
-
-.tiny-text {
-  font-size: var(--font-size-tiny-text);
-}
-
-@media (max-width: 52.5rem) {
-  .container {
-    height: 100vh;
-  }
-  
-  .inner-container,
-  .inner-container--content {
-    height: fit-content;
-  }
-
-  .hide-in-desktop {
-    display: block;
-  }
 }
