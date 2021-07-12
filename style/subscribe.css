@@ -1,3 +1,9 @@
 body {
   background-color: var(--color-background-lighter);
 }
+
+@media (max-width: 52.2rem) {
+  .inner-container {
+    height: 100vh;
+  }
+}
