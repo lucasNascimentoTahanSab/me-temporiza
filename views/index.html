@@ -10,16 +10,16 @@
     <meta name="keywords" content="Me Temporiza!, temporizador, temporizado online, pomodoro, técnica pomodoro">
     <meta name="description" content="Está procurando por um temporizador online? Use o Me Temporiza!">
     <meta name="theme-color" content="#BB8FCE">
-    <link rel="apple-touch-icon" href="src/logomin.png">
-    <link rel="icon" href="src/logomin.png">
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="style/index.css">
-    <link rel="stylesheet" href="style/form.css">
-    <link rel="stylesheet" href="style/generalStructure.css">
-    <script type="module" src="js/index.js"></script>
+    <link rel="apple-touch-icon" href="../public/sources/logomin.png">
+    <link rel="icon" href="../public/sources/logomin.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="stylesheet" href="../public/stylesheets/index.css">
+    <link rel="stylesheet" href="../public/stylesheets/form.css">
+    <link rel="stylesheet" href="../public/stylesheets/generalStructure.css">
+    <script type="module" src="../public/javascripts/index.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QYXGSGEKF0"></script>
-    <script src="js/analytics.js"></script>
+    <script src="../public/javascripts/analytics.js"></script>
     <title>Me Temporiza!</title>
   </head>
 
@@ -28,8 +28,8 @@
       <div class="inner-nav-container">
         <h1 class="nav-container__title hide clickable no-select" id="back-to-home">Me Temporiza!</h1>
         <div class="nav-container__login-buttons">
-          <a href="pages/login.html" class="form-anchor-button" id="login">Entrar</a>
-          <a href="pages/subscribe.html" class="form-standard-button no-select clickable" id="subscribe">Cadastrar</a>
+          <a href="./login.html" class="form-anchor-button" id="login">Entrar</a>
+          <a href="./subscribe.html" class="form-standard-button no-select clickable" id="subscribe">Cadastrar</a>
         </div>
       </div>
     </nav>
@@ -59,16 +59,16 @@
                     <input class="timer-input" maxlength="2" value="00" data-id="timeInput" id="seconds"></input>
                   </div>
                   <div class="timer__content--item">
-                    <img class="clickable no-select" id="execute" src="src/play.png"
+                    <img class="clickable no-select" id="execute" src="../public/sources/play.png"
                       alt="Botão para iniciar ou pausar contagem do cronômetro">
-                    <img class="clickable no-select" id="reload" src="src/reload.png"
+                    <img class="clickable no-select" id="reload" src="../public/sources/reload.png"
                       alt="Botão para reiniciar contagem do cronômetro">
                   </div>
                 </div>
               </div>
               <div class="timer__login-buttons">
-                <a href="pages/login.html" class="form-anchor-button" id="login">Entrar</a>
-                <a href="pages/subscribe.html" class="form-button no-select clickable" id="subscribe">Cadastrar</a>
+                <a href="./login.html" class="form-anchor-button" id="login">Entrar</a>
+                <a href="./subscribe.html" class="form-button no-select clickable" id="subscribe">Cadastrar</a>
               </div>
             </div>
           </section>
@@ -183,7 +183,7 @@
       </div>
       <div class="hide-in-mobile">&nbsp;</div>
     </main>
-    <audio id="alarm" src="src/alarm.mp3"></audio>
+    <audio id="alarm" src="../public/sources/alarm.mp3"></audio>
   </body>
 
 </html>

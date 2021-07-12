@@ -16,7 +16,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/nasciontem/me-temporiza">
-    <img src="src/logomin.png" alt="Logo" width="100" height="100">
+    <img src="public/sources/logomin.png" alt="Logo" width="100" height="100">
   </a>
 
   <h3 align="center">Me Temporiza!</h3>
@@ -136,9 +136,9 @@ The template used as base for this README file was extracted from ![Best-README-
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/lucas-nascimento-306465195/
 [best-readme-url]: https://github.com/othneildrew/Best-README-Template
-[homepage-url]: src/homepage.png
-[secondpage-url]: src/secondpage.png
-[thirdpage-url]: src/thirdpage.png
-[fourthpage-url]: src/fourthpage.png
-[lastpage-url]: src/lastpage.png
-[mobile-url]: src/mobile.png
+[homepage-url]: public/sources/homepage.png
+[secondpage-url]: public/sources/secondpage.png
+[thirdpage-url]: public/sources/thirdpage.png
+[fourthpage-url]: public/sources/fourthpage.png
+[lastpage-url]: public/sources/lastpage.png
+[mobile-url]: public/sources/mobile.png

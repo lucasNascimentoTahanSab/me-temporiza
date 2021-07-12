@@ -2,8 +2,8 @@ import EmailController from './emailController.js'
 import TimerController from './timerController.js'
 
 const mobileEnvironments = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
-const desktop = 'js/desktop.js'
-const mobile = 'js/mobile.js'
+const desktop = '../public/javascripts/desktop.js'
+const mobile = '../public/javascripts/mobile.js'
 
 const emailController = new EmailController()
 const timerController = new TimerController()
@@ -138,7 +138,7 @@ function stopAlarm() {
 }
 
 function changeExecuteImage() {
-  document.getElementById('execute').src = timerController.isPlaying ? 'src/pause.png' : 'src/play.png'
+  document.getElementById('execute').src = timerController.isPlaying ? '../public/sources/pause.png' : '../public/sources/play.png'
 }
 
 function setEmailName(name) {

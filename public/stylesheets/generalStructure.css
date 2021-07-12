@@ -216,7 +216,7 @@ button:active {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
-  list-style: url("../src/listIndicator.png");
+  list-style: url("../sources/listIndicator.png");
   list-style-position: inside;
   text-align: left;
 }
