@@ -5,3 +5,10 @@ body {
 .top-margin-tiny {
   margin-top: var(--gap-form-tiny);
 }
+
+@media (max-width: 52.2rem) {
+  .inner-container {
+    height: 100vh; 
+    overflow-y: auto;
+  }
+}

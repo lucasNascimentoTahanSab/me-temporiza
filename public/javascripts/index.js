@@ -1,9 +1,11 @@
+import EmailController from './emailController.js'
 import TimerController from './timerController.js'
 
 const mobileEnvironments = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
-const desktop = 'js/desktop.js'
-const mobile = 'js/mobile.js'
+const desktop = '../public/javascripts/desktop.js'
+const mobile = '../public/javascripts/mobile.js'
 
+const emailController = new EmailController()
 const timerController = new TimerController()
 const oneSecond = 1000
 let timeFormatted
@@ -21,6 +23,10 @@ window.addEventListener('load', () => {
   document.getElementById('25minutes').addEventListener('click', handlePresetTimeSelection)
   document.getElementById('50minutes').addEventListener('click', handlePresetTimeSelection)
   document.getElementById('alarm').addEventListener('pause', reloadTimer)
+  document.getElementById('message-name').addEventListener('input', element => setEmailName(element.target.value))
+  document.getElementById('message-email').addEventListener('input', element => setEmailOrigin(element.target.value))
+  document.getElementById('message-title').addEventListener('input', element => setEmailTitle(element.target.value))
+  document.getElementById('message-body').addEventListener('input', element => setEmailMessage(element.target.value))
   document.getElementById('submit-message').addEventListener('click', submitMessage)
   if (mobileEnvironments.test(navigator.userAgent)) setUpEnvironmentWithModule(mobile)
   else setUpEnvironmentWithModule(desktop)
@@ -132,11 +138,28 @@ function stopAlarm() {
 }
 
 function changeExecuteImage() {
-  document.getElementById('execute').src = timerController.isPlaying ? 'src/pause.png' : 'src/play.png'
+  document.getElementById('execute').src = timerController.isPlaying ? '../public/sources/pause.png' : '../public/sources/play.png'
+}
+
+function setEmailName(name) {
+  emailController.name = name
+}
+
+function setEmailOrigin(origin) {
+  emailController.origin = origin
+}
+
+function setEmailTitle(title) {
+  emailController.title = title
+}
+
+function setEmailMessage(message) {
+  emailController.message = message
 }
 
 function submitMessage(event) {
   event.preventDefault()
+  emailController.sendEmail()
 }
 
 /**

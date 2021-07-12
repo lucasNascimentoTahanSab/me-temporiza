@@ -8,25 +8,25 @@
     <meta name="application-name" content="Me Temporiza!">
     <meta name="author" content="Lucas Nascimento Tahan Sab">
     <meta name="keywords" content="Me Temporiza!, temporizador, temporizado online, pomodoro, técnica pomodoro">
-    <meta name="description" content="Cadastre sua conta no Me Temporiza!">
+    <meta name="description" content="Entre na sua conta do Me Temporiza!">
     <meta name="theme-color" content="#BB8FCE">
-    <link rel="apple-touch-icon" href="../src/logomin.png">
-    <link rel="icon" href="../src/logomin.png">
+    <link rel="apple-touch-icon" href="../public/sources/logomin.png">
+    <link rel="icon" href="../public/sources/logomin.png">
     <link rel="manifest" href="../manifest.json">
-    <link rel="stylesheet" href="../style/subscribe.css">
-    <link rel="stylesheet" href="../style/form.css">
-    <link rel="stylesheet" href="../style/generalStructure.css">
-    <script type="module" src="../js/subscribe.js"></script>
+    <link rel="stylesheet" href="../public/stylesheets/form.css">
+    <link rel="stylesheet" href="../public/stylesheets/generalStructure.css">
+    <link rel="stylesheet" href="../public/stylesheets/login.css">
+    <script type="module" src="../public/javascripts/login.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QYXGSGEKF0"></script>
-    <script src="../js/analytics.js"></script>
-    <title>Me Temporiza! - Cadastrar</title>
+    <script src="../public/javascripts/analytics.js"></script>
+    <title>Me Temporiza! - Entrar</title>
   </head>
 
   <body>
     <nav class="nav-container" id="navbar">
       <div class="inner-nav-container">
         <div class="inner-nav--left">
-          <a href="../index.html" class="form-anchor-button arrow-left dark-border clickable no-select hide-in-desktop"
+          <a href="./index.html" class="form-anchor-button arrow-left dark-border clickable no-select hide-in-desktop"
             id="home-page-mobile"></a>
         </div>
       </div>
@@ -34,23 +34,19 @@
     <main class="container">
       <div class="inner-container light-page">
         <div class="inner-container--content">
-          <a href="../index.html" class="form-anchor-button arrow-left dark-border clickable no-select"
+          <a href="./index.html" class="form-anchor-button arrow-left dark-border clickable no-select"
             id="home-page-desktop"></a>
           <section class="inner-container--central-content">
             <div class="central-content__item">
               <div>
-                <h2>Chega mais!</h2>
-                <p>Seja bem-vindo ao Me Temporiza!</p>
-                <p>Crie sua conta para ter acesso a todos os benefícios da plataforma!</p>
+                <h2>Sentimos sua falta!</h2>
+                <p>Seja bem-vindo de volta!</p>
+                <p>Insira seus dados para entrar em sua conta do Me Temporiza!</p>
               </div>
             </div>
             <div class="division">&nbsp;</div>
             <div class="central-content__item">
               <form class="central-content__form-item">
-                <div class="form-element">
-                  <label for="name">Nome de usuário<span class="red-highlight">*</span></label>
-                  <input class="form-input" id="name"></input>
-                </div>
                 <div class="form-element">
                   <label for="email">Email<span class="red-highlight">*</span></label>
                   <input class="form-input" type="email" id="email"></input>
@@ -59,10 +55,19 @@
                   <label for="password">Senha<span class="red-highlight">*</span></label>
                   <input class="form-input" id="password"></input>
                 </div>
-                <button class="form-button top-margin no-select clickable" id="subscribe">Cadastrar</button>
+                <div class="form-input--row top-margin-tiny">
+                  <div>
+                    <input type="checkbox" id="keep-conected"></input>
+                    <label class="tiny-text" for="keep-conected">Me mantenha conectado</label>
+                  </div>
+                  <a href="" class="tiny-text form-anchor-button content-highlight clickable">Esqueceu sua senha?</a>
+                </div>
+                <button class="form-button top-margin no-select clickable" id="login">Entrar</button>
                 <div class="tiny-text form-input--row top-margin centralize">
-                  <span> Já tem uma conta?
-                    <a href="./login.html" class="form-anchor-button content-highlight clickable">Entre aqui!</a>
+                  <span> Como assim? Ainda não se cadastrou?
+                    <a href="./subscribe.html" class="form-anchor-button content-highlight clickable">Crie uma conta,
+                      é
+                      rapidinho!</a>
                   </span>
                 </div>
               </form>
