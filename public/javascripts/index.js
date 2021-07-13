@@ -1,5 +1,6 @@
 import EmailController from './emailController.js'
 import TimerController from './timerController.js'
+import urlRequest from './urlRequest.js'
 
 const mobileEnvironments = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
 const desktop = '../public/javascripts/desktop.js'
@@ -14,6 +15,8 @@ let timeout
 window.addEventListener('load', () => {
   selectTimer('00', '05', '00')
   changeTimerValueOnScreen()
+  document.getElementById('signin').addEventListener('click', urlRequest.goToSignInPage)
+  document.getElementById('signup').addEventListener('click', urlRequest.goToSignUpPage)
   document.getElementById('execute').addEventListener('click', toggleTimerMode)
   document.getElementById('reload').addEventListener('click', reloadTimer)
   document.getElementById('hours').addEventListener('keydown', () => { if (timerController.isPlaying) toggleTimerModeWhenPlaying() })
