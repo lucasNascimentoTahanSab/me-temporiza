@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-  document.getElementById('login').addEventListener('click', submitMessage)
+  document.getElementById('signin').addEventListener('click', submitMessage)
 })
 
 function submitMessage(e) {
