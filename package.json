@@ -4,7 +4,7 @@
   "description": "This is a timer based application aiming to simplify every day tasks, making it easier to organize them by automatically controlling the time spent in each one.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,12 @@
   "bugs": {
     "url": "https://github.com/nasciontem/me-temporiza/issues"
   },
-  "homepage": "https://github.com/nasciontem/me-temporiza#readme"
+  "homepage": "https://github.com/nasciontem/me-temporiza#readme",
+  "dependencies": {
+    "consolidate": "^0.16.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
 }
